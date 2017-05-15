@@ -1,67 +1,7 @@
-[![Build Status](https://travis-ci.org/manparvesh/gtest-demo.svg?branch=master)](https://travis-ci.org/manparvesh/gtest-demo/builds)
-[![Coverage Status](https://coveralls.io/repos/manparvesh/gtest-demo/badge.png?branch=master)](https://coveralls.io/r/manparvesh/gtest-demo?branch=master)
-[![License](https://img.shields.io/badge/license-%20BSD--3-blue.svg)](../master/LICENSE)
+# stlmp
+[![Build Status](https://travis-ci.org/manparvesh/stlmp.svg?branch=master)](https://travis-ci.org/manparvesh/stlmp/builds)  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://manparvesh.mit-license.org)  
 
+My own C++ STL-like implementation with some advanced data structures. Testing done using [googletest](https://code.google.com/p/googletest)
 
-# gtest-demo
-
-C/C++ unit test demo using [Google Test](https://code.google.com/p/googletest) deployed to
-[Travis-CI](https://travis-ci.org/manparvesh/gtest-demo/builds) with test coverage
-deployed to [Coveralls](https://coveralls.io/r/manparvesh/gtest-demo).
-
-- [Build and test history](https://travis-ci.org/manparvesh/gtest-demo/builds)
-- [Code coverage](https://coveralls.io/r/manparvesh/gtest-demo)
-- Licensed under [BSD-3](../master/LICENSE)
-
-
-## How to build this demo
-
-```sh
-git clone --recursive https://github.com/manparvesh/gtest-demo.git
-cd gtest-demo
-mkdir build
-cd build
-cmake ..
-make
-```
-
-
-## Running the tests
-
-Either using `make test`:
-```
-$ make test
-
-Running tests...
-Test project /home/user/gtest-demo/build
-    Start 1: unit
-1/1 Test #1: unit .............................   Passed    0.00 sec
-
-100% tests passed, 0 tests failed out of 1
-
-Total Test time (real) =   0.00 sec
-```
-
-Or directly using `unit_tests`:
-```
-$ ./unit_tests
-
-[==========] Running 2 tests from 1 test case.
-[----------] Global test environment set-up.
-[----------] 2 tests from example
-[ RUN      ] example.add
-[       OK ] example.add (0 ms)
-[ RUN      ] example.subtract
-[       OK ] example.subtract (0 ms)
-[----------] 2 tests from example (1 ms total)
-
-[----------] Global test environment tear-down
-[==========] 2 tests from 1 test case ran. (1 ms total)
-[  PASSED  ] 2 tests.
-
-```
-
-
-## Acknowledgments
-
-Container Travis setup thanks to [Joan Massich](https://github.com/massich).
+## License
+[MIT](https://manparvesh.mit-license.org)
