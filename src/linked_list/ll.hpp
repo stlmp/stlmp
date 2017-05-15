@@ -1,27 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+template<class T>
 struct ll_node{
-	int data;
+	T data;
 	ll_node *next;
 };
 
-ll_node *create_node(int new_data){
-	ll_node *new_node = NULL;
-	new_node = new ll_node;
+template<class T>
+ll_node<T> *create_node(T new_data){
+	ll_node<T> *new_node = NULL;
+	new_node = new ll_node<T>;
 	new_node->data = new_data;
 	new_node->next = NULL;
 	return new_node;
 }
 
-void print_list(struct ll_node *head){
+template<class T>
+void print_list(struct ll_node<T> *head){
 	while(head){
 		cout << head->data << endl;
 		head = head->next;
 	}
 }
 
-int get_length(struct ll_node *head){
+template<class T>
+int get_length(struct ll_node<T> *head){
 	int length = 0;
 	while(head){
 		length++;
@@ -30,3 +34,5 @@ int get_length(struct ll_node *head){
 	}
 	return length;
 }
+
+

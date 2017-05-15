@@ -4,7 +4,7 @@
 using namespace std;
 
 TEST(stlmp, linked_list){
-	struct ll_node *head = create_node(1);
+	ll_node<int> *head = create_node(1);
 	head->next = create_node(2);
 	cout << "starting to print list" << endl;
 	print_list(head);
