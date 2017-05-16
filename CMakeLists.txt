@@ -21,6 +21,7 @@ add_library(
     stlmp
     src/main.cpp
     src/linked_list/ll.hpp
+    src/linked_list/dll.hpp
     )
 
 set(GOOGLETEST_ROOT external/googletest/googletest CACHE STRING "Google Test source root")
@@ -45,6 +46,7 @@ add_executable(
     unit_tests
     test/main.cpp
     test/linked_list/test_ll.cpp
+    test/linked_list/test_dll.cpp
     )
 
 add_dependencies(unit_tests googletest)
