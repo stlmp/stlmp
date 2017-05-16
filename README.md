@@ -12,9 +12,9 @@ My own C++ STL-like implementation with some advanced data structures. Testing d
    - [ ] Skip Linked list
    - [ ] Unrolled Linked list
 
- - [ ] Stacks
+ - [x] Stacks
 
- - [ ] Queues
+ - [x] Queues
 
  - [ ] Sorting
    - [ ] Bubble sort

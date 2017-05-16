@@ -3,15 +3,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-TEST(stack, get_size){
+TEST(stack, all_tests){
 	int foo[] = {1, 2, 3, 4, 5};
 	stackmp<int> *st = new stackmp<int>(6); 
 	for(int element : foo){
 		st->push(element);
 	}
 	st->print();
-	ASSERT_EQ(get_size(st), 5) << "reverse_list doesn't seem to work as expected!";
-	ASSERT_EQ(get_capacity(st), 6) << "reverse_list doesn't seem to work as expected!";
+	ASSERT_EQ(get_size(st), 5);
+	ASSERT_EQ(get_capacity(st), 6);
 	ASSERT_EQ(st->pop(), 5);
 	st->print();
 	ASSERT_EQ(st->pop(), 4);
