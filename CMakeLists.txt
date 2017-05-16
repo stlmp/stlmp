@@ -17,15 +17,21 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/src/linked_list
     ${PROJECT_SOURCE_DIR}/src/stack
     ${PROJECT_SOURCE_DIR}/src/queue
+    ${PROJECT_SOURCE_DIR}/src/sorting
     )
 
 add_library(
     stlmp
     src/main.cpp
+
     src/linked_list/ll.hpp
     src/linked_list/dll.hpp
+
     src/stack/stack.hpp
+
     src/queue/queue.hpp
+
+    src/sorting/insertion.hpp
     )
 
 set(GOOGLETEST_ROOT external/googletest/googletest CACHE STRING "Google Test source root")
@@ -48,11 +54,17 @@ add_library(googletest ${GOOGLETEST_SOURCES})
 
 add_executable(
     unit_tests
+
     test/main.cpp
+
     test/linked_list/test_ll.cpp
     test/linked_list/test_dll.cpp
+
     test/stack/test_stack.cpp
+
     test/queue/test_queue.cpp
+
+    test/sorting/test_insertion.cpp
     )
 
 add_dependencies(unit_tests googletest)

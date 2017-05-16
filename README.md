@@ -19,7 +19,7 @@ My own C++ STL-like implementation with some advanced data structures. Testing d
  - [ ] Sorting
    - [ ] Bubble sort
    - [ ] Merge sort
-   - [ ] Insertion sort
+   - [x] Insertion sort
    - [ ] Selection sort
    - [ ] Quick sort
    - [ ] Topological sort
