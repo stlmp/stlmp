@@ -106,3 +106,61 @@ void delete_node_with_data(ll_node<T> **head_ref, int data){
 	delete temp_node;
 }
 
+// get position of a key in linked list
+template<class T>
+int search_key(ll_node<T> *head, T key){
+	int position = -1;
+	while(head){
+		position++;
+		cout << "pos: " << position << " data: " << head->data << endl;
+		if(head->data == key) return position;
+		head = head->next;
+	}
+	return -1;
+}
+
+//reverse list
+template<class T>
+void reverse_list(ll_node<T> **head_ref){
+	ll_node<T> *prev = NULL;
+    ll_node<T> *current = *head_ref;
+    ll_node<T> *next;
+
+    while(current != NULL){
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+
+    *head_ref = prev;
+}
+
+// move to next node
+template<class T>
+void move_next(ll_node<T> **head_ref){
+	ll_node<T> *temp = *head_ref;
+	temp = temp->next;
+	*head_ref = temp;
+}
+
+// iterates through 2 lists and checks if they are equal
+template<class T>
+bool compare_lists(ll_node<T> *head1, ll_node<T> *head2){
+	ll_node<T> *temp1 = head1;
+	ll_node<T> *temp2 = head2;
+
+	while(temp1 && temp2){
+		if(temp1->data == temp2->data){
+			move_next(&temp1);
+			move_next(&temp2);
+		}else{
+			return false;
+		}
+	}
+
+	if(temp1==NULL && temp2==NULL){
+		return true;
+	}
+	return false;
+}
