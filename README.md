@@ -52,7 +52,6 @@ My own C++ STL-like implementation with some advanced data structures. Testing d
    - [ ] subsets unique
 
  - [ ] Array
-   - [x] [next_permutation](https://github.com/manparvesh/al-go-rithms/blob/master/array/next_permutation)
-
+   - [ ] next_permutation
 ### License
 [MIT](https://manparvesh.mit-license.org)

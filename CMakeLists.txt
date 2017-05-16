@@ -15,6 +15,7 @@ endif()
 include_directories(
     ${PROJECT_SOURCE_DIR}/src
     ${PROJECT_SOURCE_DIR}/src/linked_list
+    ${PROJECT_SOURCE_DIR}/src/stack
     )
 
 add_library(
@@ -22,6 +23,7 @@ add_library(
     src/main.cpp
     src/linked_list/ll.hpp
     src/linked_list/dll.hpp
+    src/stack/stack.hpp
     )
 
 set(GOOGLETEST_ROOT external/googletest/googletest CACHE STRING "Google Test source root")
@@ -47,6 +49,7 @@ add_executable(
     test/main.cpp
     test/linked_list/test_ll.cpp
     test/linked_list/test_dll.cpp
+    test/stack/test_stack.cpp
     )
 
 add_dependencies(unit_tests googletest)
