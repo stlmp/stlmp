@@ -60,7 +60,49 @@ ll_node<T> *create_list_from_array(int length, T arr[]){
 template<class T>
 void push(ll_node<T> **head_ref, T data){
 	ll_node<T> *new_node = create_node(data);
-	new_node->data = data;
 	new_node->next = *head_ref;
 	*head_ref = new_node;
 }
+
+// insert a node after given node
+template<class T>
+void insert_after(ll_node<T> *prev_node, T data){
+	if (prev_node == NULL) return;
+	ll_node<T> *new_node = create_node(data);
+	new_node->next = prev_node->next;
+	prev_node->next = new_node;
+}
+
+// given a reference pointer to the head, appends a new node at the end.
+template<class T>
+void append(ll_node<T> **head_ref, T data){
+	ll_node<T> *new_node = create_node(data);
+	if(*head_ref == NULL){
+		*head_ref = new_node;
+		return;
+	} 
+	ll_node<T> *last_node = *head_ref;
+	while(last_node->next) last_node = last_node->next;
+	last_node->next = new_node;
+}
+
+// delete the node which contains the given data
+template<class T>
+void delete_node_with_data(ll_node<T> **head_ref, int data){
+	if(*head_ref == NULL) return;
+	ll_node<T> *temp_node = *head_ref, *prev_node;
+
+	if(temp_node->data == data){
+		*head_ref = temp_node->next;
+		delete temp_node;
+		return;
+	}
+
+	while(temp_node!=NULL && temp_node->data!=data){
+		prev_node = temp_node;
+		temp_node = temp_node->next;
+	}
+	prev_node->next = temp_node->next;
+	delete temp_node;
+}
+
