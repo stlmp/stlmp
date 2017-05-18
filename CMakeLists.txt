@@ -35,6 +35,7 @@ add_library(
     src/sorting/insertion.hpp
 
     src/tree/tree.hpp
+    src/tree/bst.hpp
     )
 
 set(GOOGLETEST_ROOT external/googletest/googletest CACHE STRING "Google Test source root")
