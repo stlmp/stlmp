@@ -86,42 +86,73 @@ private:
 		}
 	}
 
-	bool _delete_value(bst_node<T> *parent, bst_node<T> *current, T del_data){
-		if(!current) return false;
-		if(current->data == del_data){
-			if(current->left_child != NULL || current->right_child != NULL){
-				// has one or none of the children
-				bst_node<T> *temp_node = current->left_child;
-				if(current->right_child) temp_node = current->right_child;
-				if(parent){
-					if(parent->left_child == current){
-						parent->left_child = temp_node;
-					}else{
-						parent->right_child = temp_node;
-					}
-				}else{
-					this->node = temp_node;
-				}
-			}else{
-				// has both the children
-				bst_node<T> *valid_substitute = current->right_child;
-				while(valid_substitute->left_child) valid_substitute = valid_substitute->left_child;
-				T temp_data = current->data;
-				current->data = valid_substitute->data; 
-				valid_substitute->data = temp_data;
-				// recursively rearrange the nodes
-				return _delete_value(current, current->right_child, temp_data);
-			}
-			delete current;
-			return true;
+	T _get_max(bst_node<T> *node){
+		if(node == NULL) return '\0';
+		bst_node<T> *temp_node = node;
+		while(temp_node->right_child){
+			temp_node = temp_node->right_child;
 		}
-		return _delete_value(current, current->left_child, del_data) || 
-				_delete_value(current, current->right_child, del_data);
+		return temp_node->data;
+	}
+
+	T _get_min(bst_node<T> *node){
+		if(node == NULL) return '\0';
+		bst_node<T> *temp_node = node;
+		while(temp_node->left_child){
+			temp_node = temp_node->left_child;
+		}
+		return temp_node->data;
+	}
+
+	bst_node<T> *_get_min_node(bst_node<T> *node){
+		if(node == NULL) return NULL;
+		bst_node<T> *temp_node = node;
+		while(temp_node->left_child){
+			temp_node = temp_node->left_child;
+		}
+		return temp_node;
+	}
+
+	bst_node<T> *_delete_value(bst_node<T> *root, T del_data){
+		if(root == NULL) return root;
+
+		if(del_data < root->data){
+			root->left_child = _delete_value(root->left_child, del_data);
+		}else if(del_data > root->data){
+			root->right_child = _delete_value(root->right_child, del_data);
+		}else{
+			// check if one child is NULL
+			if(root->left_child == NULL){
+				bst_node<T> *temp_node = root->right_child;
+				delete root;
+				return temp_node;
+			}else if(root->right_child == NULL){
+				bst_node<T> *temp_node = root->left_child;
+				delete root;
+				return temp_node;
+			}
+
+			// if the node has both the 
+			bst_node<T> *temp_node = _get_min_node(root->right_child);
+			cout << "min node " << temp_node->data << endl; 
+			root->data = temp_node->data;
+			root->right_child = _delete_value(root->right_child, temp_node->data);
+		}
+		return root;
+	}
+
+	int _get_count(bst_node<T> *node){
+		if(node == NULL) return 0;
+		return 1 + _get_count(node->left_child) + _get_count(node->right_child);
 	}
 public:
 	BST() : node(NULL) {}
 	BST(T new_data) : node(new bst_node<T>(new_data)) {}
 	~BST();
+
+	T data(){
+		return this->node->data;
+	}
 
 	void insert(T new_data){
 		bst_node<T> *new_node = new bst_node<T>(new_data);
@@ -155,21 +186,11 @@ public:
 	}
 
 	T get_max(){
-		if(node == NULL) return '\0';
-		bst_node<T> *temp_node = node;
-		while(temp_node->right_child){
-			temp_node = temp_node->right_child;
-		}
-		return temp_node->data;
+		return _get_max(node);
 	}
 
 	T get_min(){
-		if(node == NULL) return '\0';
-		bst_node<T> *temp_node = node;
-		while(temp_node->left_child){
-			temp_node = temp_node->left_child;
-		}
-		return temp_node->data;
+		return _get_min(node);
 	}
 
 	int count_nodes(){
@@ -186,7 +207,11 @@ public:
 		cout << endl;
 	}
 
-	bool delete_value(T del_data){
-		return _delete_value(NULL, this->node, del_data);
+	void delete_value(T del_data){
+		this->node = _delete_value(this->node, del_data);
+	}
+
+	int get_count(){
+		return _get_count(this->node);
 	}
 };

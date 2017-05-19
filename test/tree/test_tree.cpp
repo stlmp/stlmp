@@ -47,8 +47,9 @@ TEST(binary_search_tree, all_tests){
 	EXPECT_TRUE(bst->find(10));
 	bst->print();
 	bst->print_max_path();
-	EXPECT_TRUE(bst->delete_value(10));
-	bst->print();
+	bst->print_post_order();
+	bst->print_pre_order();
+	bst->print_max_path();
 
 	bst->insert(6);
 	bst->insert(8);
@@ -59,9 +60,10 @@ TEST(binary_search_tree, all_tests){
 	EXPECT_FALSE(bst->find(233));
 	EXPECT_TRUE(bst->find(1));
 	bst->print();
-	bst->print_post_order();
-	bst->print_pre_order();
-	bst->print_max_path();
+	bst->delete_value(10);
+	cout << "After deletion of 10:" << endl;
+	bst->print();
+	EXPECT_EQ(bst->get_count(), 7);
 
 	BST<int> *bst2 = new BST<int>(1);
 	EXPECT_EQ(bst2->get_length(), 1);
