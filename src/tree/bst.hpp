@@ -71,7 +71,12 @@ private:
 			if(node->data == data){
 				return true;
 			}
-			return _find(node->left_child, data) || _find(node->right_child, data);
+			if(node->data > data){
+				// go left
+				return _find(node->left_child, data);
+			}else{
+				return _find(node->right_child, data);
+			}
 		}
 		return false;
 	}
