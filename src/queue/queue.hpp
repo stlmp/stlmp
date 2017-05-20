@@ -51,6 +51,10 @@ struct queuemp{
 		this->size--;
 		return data;
 	}
+
+	T peek(){
+		return this->head->data;
+	}
 };
 
 template<class T>

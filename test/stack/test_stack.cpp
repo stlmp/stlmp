@@ -16,6 +16,7 @@ TEST(stack, all_tests){
 	st->print();
 	ASSERT_EQ(st->pop(), 4);
 	st->print();
+	ASSERT_EQ(st->peek(), 3);
 	ASSERT_EQ(st->pop(), 3);
 	st->print();
 	ASSERT_EQ(st->pop(), 2);
