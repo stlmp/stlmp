@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include "../queue/queue.hpp"
 using namespace std;
 
 template<class T>
@@ -150,6 +151,21 @@ private:
 		if(node == NULL) return 0;
 		return 1 + _get_count(node->left_child) + _get_count(node->right_child);
 	}
+
+	void _level_order(bst_node<T> *node){
+		if(node == NULL) return;
+		cout << "Level order traversal:" << endl;
+		queuemp<bst_node<T> *> *q = new queuemp<bst_node<T> *>();
+		q->push(node);
+		while(q->size){
+			bst_node<T> *temp = q->pop();
+			if(temp->left_child) q->push(temp->left_child);
+			if(temp->right_child) q->push(temp->right_child); 
+			cout << temp->data << " ";
+		}
+		cout << endl;
+		delete q;
+	}
 public:
 	BST() : node(NULL) {}
 	BST(T new_data) : node(new bst_node<T>(new_data)) {}
@@ -218,5 +234,9 @@ public:
 
 	int get_count(){
 		return _get_count(this->node);
+	}
+
+	void level_order(){
+		_level_order(this->node);
 	}
 };

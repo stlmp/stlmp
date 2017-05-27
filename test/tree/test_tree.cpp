@@ -60,6 +60,7 @@ TEST(binary_search_tree, all_tests){
 	EXPECT_FALSE(bst->find(233));
 	EXPECT_TRUE(bst->find(1));
 	bst->print();
+	bst->level_order();
 	bst->delete_value(10);
 	cout << "After deletion of 10:" << endl;
 	bst->print();
