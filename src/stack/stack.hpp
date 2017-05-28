@@ -30,9 +30,10 @@ struct stackmp{
 		}
 		cout << "Printing stack:" << endl;
 		for(int i=0;i<this->size;i++){
-			cout << temp_node->data << endl;
+			cout << temp_node->data << ' ';
 			temp_node = temp_node->next;
 		}
+		cout << endl;
 	}
 
 	T pop(){
@@ -44,6 +45,10 @@ struct stackmp{
 		this->top = this->top->next;
 		size--;
 		return data;
+	}
+
+	T peek(){
+		return this->top->data;
 	}
 };
 

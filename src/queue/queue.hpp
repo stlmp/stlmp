@@ -45,11 +45,15 @@ struct queuemp{
 		ll_node<T> *new_node = this->head;
 		// move to second last element
 		for(int i=0;i<this->size-2;i++) new_node = new_node->next;
-		cout << new_node->data << endl;
+		//cout << new_node->data << endl;
 		T data = new_node->next->data;
 		new_node->next = NULL;
 		this->size--;
 		return data;
+	}
+
+	T peek(){
+		return this->head->data;
 	}
 };
 
