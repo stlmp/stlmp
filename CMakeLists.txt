@@ -19,6 +19,7 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/src/queue
     ${PROJECT_SOURCE_DIR}/src/sorting
     ${PROJECT_SOURCE_DIR}/src/tree
+    ${PROJECT_SOURCE_DIR}/src/heap
     )
 
 add_library(
@@ -36,6 +37,8 @@ add_library(
 
     src/tree/tree.hpp
     src/tree/bst.hpp
+
+    src/heap/heap.hpp
     )
 
 set(GOOGLETEST_ROOT external/googletest/googletest CACHE STRING "Google Test source root")
@@ -71,6 +74,8 @@ add_executable(
     test/sorting/test_insertion.cpp
 
     test/tree/test_tree.cpp
+
+    test/heap/test_heap.cpp
     )
 
 add_dependencies(unit_tests googletest)
