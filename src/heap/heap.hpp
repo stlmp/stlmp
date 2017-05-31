@@ -74,4 +74,40 @@ public:
 
 		down(max_element);
 	}
+
+	bool is_full(){
+		return this->size == this->capacity;
+	}
+
+	bool is_empty(){
+		return this->size == 0;
+	}
+
+	void resize(){
+		T *old_array = this->arr;
+		this->arr = static_cast< T* > malloc(sizeof(T) * this->capacity * 2);
+		if(this->arr == NULL){
+			cout << "Memory error" << endl;
+			return;
+		}
+		for(int i=0;i<this->capacity;i++) this->arr[i] = old_array[i];
+		this->capacity *= 2;
+		delete [] old_array;
+	}
+
+	void insert(T data){
+		if(this->is_full()) this->resize();
+		this->size++;
+		int i = this->size - 1;
+		while(i>0 && data > this->arr[get_parent(i)]){
+			this->arr[i] = this->arr[get_parent(i)];
+			i = get_parent(i);
+		}
+		this->arr[i] = data;
+	}
+
+	heap(int ar[], int capacity, int type) : arr(new T[capacity]), size(capacity), capacity(capacity), type(type) {
+		for(int i=0;i<capacity;i++) this->arr[i] = ar[i];
+		for(int i=(capacity-1)/2;i>=0;i--) down(i);
+	}
 };
