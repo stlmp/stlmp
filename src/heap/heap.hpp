@@ -24,17 +24,25 @@ public:
 		return (child_index-1)/2;
 	}
 
+	bool has_left_child(int parent_index){
+		return parent_index * 2 + 1 < this->size;
+	}
+
+	bool has_right_child(int parent_index){
+		return parent_index * 2 + 2 < this->size;
+	}
+
 	// get index of left child from parent's index
 	int get_left_child(int parent_index){
 		int left_child_index = parent_index * 2 + 1;
-		if(left_child_index >= this->size) return -1;
+		if(!has_left_child(parent_index)) return -1;
 		return left_child_index;
 	}
 
 	// get index of left child from parent's index
 	int get_right_child(int parent_index){
 		int right_child_index = parent_index * 2 + 2;
-		if(right_child_index >= this->size) return -1;
+		if(!has_right_child(parent_index)) return -1;
 		return right_child_index;
 	}
 
@@ -55,7 +63,7 @@ public:
 	// takes location of element as input and heapifies our array downwards
 	// considering max heap
 	void down(int parent_index){
-		int left_child_index = get_left_child(), right_child_index = get_right_child();
+		int left_child_index = get_left_child(parent_index), right_child_index = get_right_child(parent_index);
 		if(left_child_index == -1 && right_child_index == -1) return;
 
 		// everything is valid, so let's proceed to finding the next max element that can be swapped with the parent
@@ -85,7 +93,7 @@ public:
 
 	void resize(){
 		T *old_array = this->arr;
-		this->arr = static_cast< T* > malloc(sizeof(T) * this->capacity * 2);
+		this->arr = static_cast< T* > (malloc(sizeof(T) * this->capacity * 2));
 		if(this->arr == NULL){
 			cout << "Memory error" << endl;
 			return;
@@ -106,8 +114,23 @@ public:
 		this->arr[i] = data;
 	}
 
-	heap(int ar[], int capacity, int type) : arr(new T[capacity]), size(capacity), capacity(capacity), type(type) {
+	heap(T ar[], int capacity, int type) : arr(new T[capacity]), size(capacity), capacity(capacity), type(type) {
 		for(int i=0;i<capacity;i++) this->arr[i] = ar[i];
 		for(int i=(capacity-1)/2;i>=0;i--) down(i);
+	}
+
+	void print(){
+		for(int i=0;i<this->size;i++) cout << this->arr[i] << " ";
+		cout << endl;
+	}
+
+	bool is_heap(){
+		int i = 0;
+		// assuming max heap
+		for(int j=0;j<this->size;j++){
+			if(this->has_left_child(j) && this->arr[this->get_left_child(j)] > this->arr[j]) return false; 
+			if(this->has_right_child(j) && this->arr[this->get_right_child(j)] > this->arr[j]) return false; 
+		}
+		return true;
 	}
 };
