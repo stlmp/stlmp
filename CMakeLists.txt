@@ -20,6 +20,7 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/src/sorting
     ${PROJECT_SOURCE_DIR}/src/tree
     ${PROJECT_SOURCE_DIR}/src/heap
+    ${PROJECT_SOURCE_DIR}/src/disjoint_set
     )
 
 add_library(
@@ -39,6 +40,8 @@ add_library(
     src/tree/bst.hpp
 
     src/heap/heap.hpp
+
+    src/disjoint_set/disjoint_set.hpp
     )
 
 set(GOOGLETEST_ROOT external/googletest/googletest CACHE STRING "Google Test source root")
@@ -76,6 +79,8 @@ add_executable(
     test/tree/test_tree.cpp
 
     test/heap/test_heap.cpp
+
+    test/disjoint_set/test_disjoint_set.cpp
     )
 
 add_dependencies(unit_tests googletest)
