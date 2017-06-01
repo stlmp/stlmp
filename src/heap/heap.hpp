@@ -25,11 +25,11 @@ public:
 	}
 
 	bool has_left_child(int parent_index){
-		return parent_index * 2 + 1 < this->size;
+		return (parent_index * 2 + 1 < this->size) && (parent_index >= 0);
 	}
 
 	bool has_right_child(int parent_index){
-		return parent_index * 2 + 2 < this->size;
+		return (parent_index * 2 + 2 < this->size) && (parent_index >= 0);
 	}
 
 	// get index of left child from parent's index
@@ -67,11 +67,18 @@ public:
 		if(left_child_index == -1 && right_child_index == -1) return;
 
 		// everything is valid, so let's proceed to finding the next max element that can be swapped with the parent
-		int max_element;
-		if(left_child_index != -1 && arr[left_child_index] > arr[parent_index]) max_element = left_child_index;
+		int max_element = parent_index;
+		if(left_child_index != -1){
+			if(arr[left_child_index] > arr[parent_index]) max_element = left_child_index;
+			else max_element = parent_index;
+		} 
 		else max_element = parent_index;
 
-		if(right_child_index != -1 && arr[right_child_index] > arr[max_element]) max_element = right_child_index;
+		if(right_child_index != -1){
+			if(arr[right_child_index] > arr[max_element]) max_element = right_child_index;
+		} 
+
+		if(max_element == -1) return;
 
 		// swap max_element with parent
 		if(max_element != parent_index){
@@ -114,12 +121,14 @@ public:
 		this->arr[i] = data;
 	}
 
+	// another constructor to create a heap from an array
 	heap(T ar[], int capacity, int type) : arr(new T[capacity]), size(capacity), capacity(capacity), type(type) {
 		for(int i=0;i<capacity;i++) this->arr[i] = ar[i];
 		for(int i=(capacity-1)/2;i>=0;i--) down(i);
 	}
 
 	void print(){
+		cout << "Printing heap: " << endl;
 		for(int i=0;i<this->size;i++) cout << this->arr[i] << " ";
 		cout << endl;
 	}
