@@ -6,21 +6,23 @@ My own C++ STL-like implementation with some advanced data structures. Testing d
 #### Implementation tree
 ```
 src
+├── disjoint_set
+│   └── disjoint_set.hpp         # disjoint set implementation
 ├── heap
-│   └── heap.hpp        # heap implementation
+│   └── heap.hpp                 # heap implementation
 ├── linked_list
-│   ├── dll.hpp         # doubly linked list 
-│   └── ll.hpp          # singly linked list
-├── main.cpp            # ignore this file
+│   ├── dll.hpp                  # doubly linked list 
+│   └── ll.hpp                   # singly linked list
+├── main.cpp                     # ignore this file
 ├── queue
-│   └── queue.hpp       # queue implementation
+│   └── queue.hpp                # queue implementation
 ├── sorting
-│   └── insertion.hpp   # insertion sort
+│   └── insertion.hpp            # insertion sort
 ├── stack
-│   └── stack.hpp       # stack implementation
+│   └── stack.hpp                # stack implementation
 └── tree
-    ├── bst.hpp         # general tree implementation
-    └── tree.hpp        # binary search tree
+    ├── bst.hpp                  # general tree implementation
+    └── tree.hpp                 # binary search tree
 ```
 ### Plan
 You can take a look at the implementation plan [here](plan.md)
