@@ -1,57 +1,29 @@
 # stlmp
 [![Build Status](https://travis-ci.org/manparvesh/stlmp.svg?branch=master)](https://travis-ci.org/manparvesh/stlmp/builds)  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://manparvesh.mit-license.org)  
 
-My own C++ STL-like implementation with some advanced data structures. Testing done using [googletest](https://code.google.com/p/googletest), using [gtest-demo](https://github.com/bast/gtest-demo) by [bast](https://github.com/bast).
+My own C++ STL-like implementation with some advanced data structures. Testing done using [googletest](https://code.google.com/p/googletest), using [bast/gtest-demo](https://github.com/bast/gtest-demo).
 
-#### List of implementations
- - [Linked list](https://github.com/manparvesh/stlmp/tree/master/src/linked_list)
-   - [Singly Linked list](https://github.com/manparvesh/stlmp/blob/master/src/linked_list/ll.hpp)
-   - [Doubly Linked list](https://github.com/manparvesh/stlmp/blob/master/src/linked_list/dll.hpp)
-   - [ ] Circular Linked list
-   - [ ] Memory efficient doubly Linked list
-   - [ ] Skip Linked list
-   - [ ] Unrolled Linked list
+#### Implementation tree
+```
+src
+├── heap
+│   └── heap.hpp        # heap implementation
+├── linked_list
+│   ├── dll.hpp         # doubly linked list 
+│   └── ll.hpp          # singly linked list
+├── main.cpp            # ignore this file
+├── queue
+│   └── queue.hpp       # queue implementation
+├── sorting
+│   └── insertion.hpp   # insertion sort
+├── stack
+│   └── stack.hpp       # stack implementation
+└── tree
+    ├── bst.hpp         # general tree implementation
+    └── tree.hpp        # binary search tree
+```
+### Plan
+You can take a look at the implementation plan [here](plan.md)
 
- - [Stacks](https://github.com/manparvesh/stlmp/blob/master/src/stack/stack.hpp)
-
- - [Queues](https://github.com/manparvesh/stlmp/blob/master/src/queue/queue.hpp)
-
- - [Sorting](https://github.com/manparvesh/stlmp/tree/master/src/sorting)
-   - [ ] Bubble sort
-   - [ ] Merge sort
-   - [Insertion sort](https://github.com/manparvesh/stlmp/blob/master/src/sorting/insertion.hpp)
-   - [ ] Selection sort
-   - [ ] Quick sort
-   - [ ] Topological sort
-   - [ ] Heap sort
-   - [ ] Bucket sort
-   - [ ] Shell sort
-   
- - [ ] Searching
-   - [ ] Binary search
-   - [ ] Jump search
-   - [ ] Fibonacci search
-   - [ ] Depth First Search 
-   - [ ] Breadth First Search
-   - [ ] Kosaraju's Algorithm (find all SCCs)
-
- - [ ] Backtrack
-   - [ ] anagram
-   - [ ] array sum combinations
-   - [ ] combination sum
-   - [ ] expression add operators
-   - [ ] factor combinations
-   - [ ] generate abbreviations
-   - [ ] generate parenthesis
-   - [ ] letter combination
-   - [ ] palindrome partitioning
-   - [ ] pattern match
-   - [ ] permute
-   - [ ] permute unique
-   - [ ] subsets
-   - [ ] subsets unique
-
- - [ ] Array
-   - [ ] next_permutation
 ### License
 [MIT](https://manparvesh.mit-license.org)
