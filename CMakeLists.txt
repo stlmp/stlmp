@@ -22,6 +22,7 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/src/heap
     ${PROJECT_SOURCE_DIR}/src/disjoint_set
     ${PROJECT_SOURCE_DIR}/src/algorithms
+    ${PROJECT_SOURCE_DIR}/src/graph
     )
 
 add_library(
@@ -45,6 +46,8 @@ add_library(
     src/disjoint_set/disjoint_set.hpp
 
     src/algorithms/flood_fill.hpp
+
+    src/graph/adjacency_matrix.hpp
     )
 
 set(GOOGLETEST_ROOT external/googletest/googletest CACHE STRING "Google Test source root")
@@ -86,6 +89,8 @@ add_executable(
     test/disjoint_set/test_disjoint_set.cpp
 
     test/algorithms/test_flood_fill.cpp
+
+    test/graph/test_adjacency_matrix.cpp
     )
 
 add_dependencies(unit_tests googletest)
