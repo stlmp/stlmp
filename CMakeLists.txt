@@ -21,6 +21,7 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/src/tree
     ${PROJECT_SOURCE_DIR}/src/heap
     ${PROJECT_SOURCE_DIR}/src/disjoint_set
+    ${PROJECT_SOURCE_DIR}/src/algorithms
     ${PROJECT_SOURCE_DIR}/src/graph
     )
 
@@ -43,6 +44,8 @@ add_library(
     src/heap/heap.hpp
 
     src/disjoint_set/disjoint_set.hpp
+
+    src/algorithms/flood_fill.hpp
 
     src/graph/adjacency_matrix.hpp
     )
@@ -84,6 +87,8 @@ add_executable(
     test/heap/test_heap.cpp
 
     test/disjoint_set/test_disjoint_set.cpp
+
+    test/algorithms/test_flood_fill.cpp
 
     test/graph/test_adjacency_matrix.cpp
     )
