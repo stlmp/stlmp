@@ -1,12 +1,12 @@
 <div align="center" style="margin: 20px">
-  <img src="https://github.com/manparvesh/stlmp/raw/master/stlmp.png">
+  <img src="https://github.com/stlmp/stlmp/raw/master/stlmp.png">
 </div>
 
 <div align="center">
 
   <h1>stlmp</h1>
   <p>My own C++ STL-like implementation with some advanced data structures. Testing done using <a href="https://code.google.com/p/googletest" target="_blank">googletest</a>, using <a href="https://github.com/bast/gtest-demo" target="_blank">bast/gtest-demo</a>.</p>
-  <a href="https://travis-ci.org/manparvesh/stlmp/builds" target="_blank"><img src="https://travis-ci.org/manparvesh/stlmp.svg?branch=master" alt="Build Status"></a> 
+  <a href="https://travis-ci.org/stlmp/stlmp/builds" target="_blank"><img src="https://travis-ci.org/stlmp/stlmp.svg?branch=master" alt="Build Status"></a> 
   <a href="https://manparvesh.mit-license.org/" target="_blank"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a> 
   
 </div>
