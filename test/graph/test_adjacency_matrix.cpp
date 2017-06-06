@@ -15,4 +15,5 @@ TEST(graph_adjacency_matrix, all_tests){
 	ASSERT_TRUE(g->connected(1, 0));
 	ASSERT_TRUE(g->connected(3, 0));
 	ASSERT_TRUE(g->connected(3, 2));
+	ASSERT_EQ(g->connected_components(), 4);
 }

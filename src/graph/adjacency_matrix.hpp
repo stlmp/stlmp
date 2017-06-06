@@ -18,7 +18,7 @@ public:
 		for(int i=0;i<count;i++){
 			this->vertices[i] = vertices[i];
 			for(int j=0;j<count;j++){
-				connections[i][j] = (i!=j);
+				connections[i][j] = (i==j);
 			}
 		}
 	}
@@ -52,8 +52,29 @@ public:
 		return false;
 	}
 
+	void dfs(int i){
+		for(int j=0;j<count;j++){
+			if(!visited[j] && connections[i][j]){
+				visited[j] = true;
+				dfs(j);
+			}
+		}
+	}
+
 	// check if the vertices at i and j are connected.
 	bool connected(int i, int j){
 		return bfs(i, j);
+	}
+
+	int connected_components(){
+		for(int i=0;i<count;i++) visited[i] = false;
+		int components = 0;
+		for(int i=0;i<count;i++){
+			if(!visited[i]){
+				dfs(i);
+				components++;
+			}
+		}
+		return components;
 	}
 };
