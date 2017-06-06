@@ -5,11 +5,16 @@ using namespace std;
 template<typename T>
 class graph_am {
 private:
+	int count;
 	bool **connections;
 	T *vertices;
-	int count;
+	bool *visited;
 public:
-	graph_am(T vertices[], int count) : count(count), vertices(new T[count]), connections(new bool[count][count]){
+	graph_am(T vertices[], int count) : count(count), vertices(new T[count]), visited(new bool[count]) {
+		connections = new bool*[count];
+		for(int i=0;i<count;i++){
+			connections[i] = new bool[count];
+		}
 		for(int i=0;i<count;i++){
 			this->vertices[i] = vertices[i];
 			for(int j=0;j<count;j++){
@@ -27,8 +32,28 @@ public:
 		connect(j, i);
 	}
 
-	void bfs(int i, int j){
+	bool bfs(int i, int j){
 		queuemp<int> *q = new queuemp<int>();
-		if()
+		if(connections[i][j]) return true;
+		// else, try seraching though the connections
+		for(int w=0;w<this->count;w++) visited[w] = false;
+		q->push(i);
+		visited[i] = true;
+		while(q->size){
+			int v = q->pop();
+			for(int w = 0; w < this->count; w++){
+				if(!visited[w] && connections[v][w]){
+					if(w == j) return true;
+					q->push(w);
+					visited[w] = true;
+				}
+			}
+		}
+		return false;
+	}
+
+	// check if the vertices at i and j are connected.
+	bool connected(int i, int j){
+		return bfs(i, j);
 	}
 };
