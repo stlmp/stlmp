@@ -48,6 +48,7 @@ add_library(
     src/algorithms/flood_fill.hpp
 
     src/graph/adjacency_matrix.hpp
+    src/graph/adjacency_list.hpp
     )
 
 set(GOOGLETEST_ROOT external/googletest/googletest CACHE STRING "Google Test source root")
@@ -91,6 +92,7 @@ add_executable(
     test/algorithms/test_flood_fill.cpp
 
     test/graph/test_adjacency_matrix.cpp
+    test/graph/test_adjacency_list.cpp
     )
 
 add_dependencies(unit_tests googletest)
