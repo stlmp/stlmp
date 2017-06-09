@@ -34,7 +34,7 @@ src
     └── tree.hpp                 # binary search tree
 ```
 ### Plan
-You can take a look at the implementation plan [here](plan.md)
+You can take a look at the implementation plan [here](https://github.com/stlmp/stlmp/blob/master/plan.md)
 
 ### License
 [MIT](https://manparvesh.mit-license.org)
