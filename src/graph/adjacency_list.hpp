@@ -39,10 +39,10 @@ public:
 		while(q->size){
 			int v = q->pop();
 			for(int w = 0; w < connections[v].size();w++){
-				if(!visited[w]){
-					if(connections[v][w] == v) return true;
+				if(!visited[connections[v][w]]){
+					if(connections[v][w] == j) return true;
 					q->push(connections[v][w]);
-					visited[w] = true;
+					visited[connections[v][w]] = true;
 				}
 			}
 		}
@@ -53,7 +53,7 @@ public:
 		for(int j=0;j<connections[i].size();j++){
 			if(!visited[connections[i][j]]){
 				visited[connections[i][j]] = true;
-				dfs(j);
+				dfs(connections[i][j]);
 			}
 		}
 	}
@@ -63,11 +63,24 @@ public:
 		return bfs(i, j);
 	}
 
+	void print_graph(){
+		cout << "Printing adjacency list of graph:" << endl;
+		for(int i=0;i<count;i++){
+			vector<int> v = connections[i];
+			cout << "vertices connected to " << i << ":" << endl;
+			for(int j=0;j<v.size();j++){
+				cout << connections[i][j] << " ";
+			}
+			cout << endl;
+		}
+	}
+
 	int connected_components(){
 		for(int i=0;i<count;i++) visited[i] = false;
 		int components = 0;
 		for(int i=0;i<count;i++){
 			if(!visited[i]){
+				visited[i] = true;
 				dfs(i);
 				components++;
 			}

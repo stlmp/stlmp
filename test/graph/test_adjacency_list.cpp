@@ -12,6 +12,7 @@ TEST(graph_adjacency_list, all_tests){
 	g->connect_both_sides(7, 2);
 	g->connect_both_sides(7, 3);
 	g->connect_both_sides(1, 2);
+	//g->print_graph();
 	EXPECT_TRUE(g->connected(1, 0));
 	EXPECT_TRUE(g->connected(3, 0));
 	EXPECT_TRUE(g->connected(3, 2));
