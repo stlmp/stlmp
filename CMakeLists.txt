@@ -25,6 +25,9 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/src/graph
     )
 
+file(GLOB SORTING src/sorting/*.hpp)
+file(GLOB TESTSORTING test/sorting/*.cpp)
+
 add_library(
     stlmp
     src/main.cpp
@@ -36,7 +39,7 @@ add_library(
 
     src/queue/queue.hpp
 
-    src/sorting/insertion.hpp
+    ${SORTING}
 
     src/tree/tree.hpp
     src/tree/bst.hpp
@@ -81,7 +84,7 @@ add_executable(
 
     test/queue/test_queue.cpp
 
-    test/sorting/test_insertion.cpp
+    ${TESTSORTING}
 
     test/tree/test_tree.cpp
 

@@ -6,11 +6,7 @@ void insertion_sort(int length, int v[]){
 	for(int i=0;i<length;i++){
 		j = i;
 		while(j>0 && v[j] < v[j-1]){
-			// swap
-			temp = v[j];
-			v[j] = v[j-1];
-			v[j-1] = temp;
-
+			swap(v[j], v[j-1]);
 			j--;
 		}
 	}
