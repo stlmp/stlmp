@@ -12,14 +12,14 @@
  - [x] [Queues](https://github.com/manparvesh/stlmp/blob/master/src/queue/queue.hpp)
 
  - [ ] [Sorting](https://github.com/manparvesh/stlmp/tree/master/src/sorting)
-   - [ ] Bubble sort
-   - [ ] Merge sort
+   - [x] Bubble sort
+   - [x] Merge sort
    - [x] [Insertion sort](https://github.com/manparvesh/stlmp/blob/master/src/sorting/insertion.hpp)
-   - [ ] Selection sort
-   - [ ] Quick sort
+   - [x] Selection sort
+   - [x] Quick sort
    - [ ] Topological sort
    - [ ] Heap sort
-   - [ ] Bucket sort
+   - [x] Bucket sort
    - [ ] Shell sort
    
  - [x] [heap](https://github.com/manparvesh/stlmp/blob/master/src/heap/heap.hpp)
@@ -32,8 +32,8 @@
    - [ ] Binary search
    - [ ] Jump search
    - [ ] Fibonacci search
-   - [ ] Depth First Search 
-   - [ ] Breadth First Search
+   - [x] Depth First Search 
+   - [x] Breadth First Search
    - [ ] Kosaraju's Algorithm (find all SCCs)
 
  - [ ] Backtrack
