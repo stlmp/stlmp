@@ -15,8 +15,13 @@
 #### Implementation tree
 ```
 src
+├── algorithms
+│   └── flood_fill.hpp           # flood fill algorithm
 ├── disjoint_set
 │   └── disjoint_set.hpp         # disjoint set implementation
+├── graph
+│   ├── adjacency_list.hpp       # graph implementation with adjacency list
+│   └── adjacency_matrix.hpp     # graph implementation with adjacency matrix
 ├── heap
 │   └── heap.hpp                 # heap implementation
 ├── linked_list
@@ -26,7 +31,12 @@ src
 ├── queue
 │   └── queue.hpp                # queue implementation
 ├── sorting
+│   ├── bubble.hpp               # bubble sort
 │   └── insertion.hpp            # insertion sort
+│   ├── merge.hpp                # merge sort
+│   ├── quick.hpp                # quick sort
+│   ├── radix.hpp                # radix sort
+│   └── selection.hpp            # selection sort
 ├── stack
 │   └── stack.hpp                # stack implementation
 └── tree
