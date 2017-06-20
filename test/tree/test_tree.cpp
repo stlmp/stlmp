@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include "tree.hpp"
 #include "bst.hpp"
+#include "segment_tree.hpp"
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -76,5 +77,16 @@ TEST(binary_search_tree, all_tests){
 	EXPECT_EQ(bst2->get_length(), 3);
 	bst2->print();
 	bst2->print_max_path();
+}
+
+TEST(segment_tree, all_tests){
+	int ar[] = {1, 2, 3, 4, 5};
+	segment_tree *st = new segment_tree(ar, 5);
+	st->print();
+	st->update(0, 0);
+	st->update(2, 4);
+	st->print();
+	ASSERT_EQ(st->get(0), 15);
+	ASSERT_EQ(st->get_sum(0, 4), 15);
 }
 

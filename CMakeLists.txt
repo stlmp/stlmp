@@ -28,6 +28,9 @@ include_directories(
 file(GLOB SORTING src/sorting/*.hpp)
 file(GLOB TESTSORTING test/sorting/*.cpp)
 
+file(GLOB TREES src/tree/*.hpp)
+file(GLOB TESTTREES test/tree/*.cpp)
+
 add_library(
     stlmp
     src/main.cpp
@@ -41,8 +44,7 @@ add_library(
 
     ${SORTING}
 
-    src/tree/tree.hpp
-    src/tree/bst.hpp
+    ${TREES}
 
     src/heap/heap.hpp
 
@@ -86,7 +88,7 @@ add_executable(
 
     ${TESTSORTING}
 
-    test/tree/test_tree.cpp
+    ${TESTTREES}
 
     test/heap/test_heap.cpp
 
