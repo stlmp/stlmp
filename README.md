@@ -5,14 +5,14 @@
 <div align="center">
 
   <h1>stlmp</h1>
-  <p>My own C++ STL-like implementation with some advanced data structures. Testing done using <a href="https://code.google.com/p/googletest" target="_blank">googletest</a>, using <a href="https://github.com/bast/gtest-demo" target="_blank">bast/gtest-demo</a>.</p>
+  <p>Implementation of data structures and algorithms in C++, like the Standard Template Library (STL). Tests written using <a href="https://code.google.com/p/googletest" target="_blank">googletest</a>, using the template <a href="https://github.com/bast/gtest-demo" target="_blank">bast/gtest-demo</a>.</p>
   <a href="https://travis-ci.org/stlmp/stlmp/builds" target="_blank"><img src="https://travis-ci.org/stlmp/stlmp.svg?branch=master" alt="Build Status"></a> 
   <a href="https://manparvesh.mit-license.org/" target="_blank"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a> 
   
 </div>
 
 
-#### Implementation tree
+### Implementation tree
 ```
 src
 ├── algorithms
@@ -42,6 +42,23 @@ src
 └── tree
     ├── bst.hpp                  # general tree implementation
     └── tree.hpp                 # binary search tree
+```
+
+### Building
+ - Install C++17
+```
+$ sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+$ sudo apt-get update -qq
+$ sudo apt-get install g++-6
+$ sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
+```
+ - Run build script
+```
+$ ./build.sh
+```
+ - If there are any changes in the code and you need to build again, run the second script.
+```
+$ ./build_after_cmake.sh
 ```
 ### Plan
 You can take a look at the implementation plan [here](https://github.com/stlmp/stlmp/blob/master/plan.md)
