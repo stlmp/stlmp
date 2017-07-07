@@ -31,6 +31,9 @@ file(GLOB TESTSORTING test/sorting/*.cpp)
 file(GLOB TREES src/tree/*.hpp)
 file(GLOB TESTTREES test/tree/*.cpp)
 
+file(GLOB GRAPHS src/graph/*.hpp)
+file(GLOB TESTGRAPHS test/graph/*.cpp)
+
 add_library(
     stlmp
     src/main.cpp
@@ -46,14 +49,13 @@ add_library(
 
     ${TREES}
 
+    ${GRAPHS}
+
     src/heap/heap.hpp
 
     src/disjoint_set/disjoint_set.hpp
 
     src/algorithms/flood_fill.hpp
-
-    src/graph/adjacency_matrix.hpp
-    src/graph/adjacency_list.hpp
     )
 
 set(GOOGLETEST_ROOT external/googletest/googletest CACHE STRING "Google Test source root")
@@ -90,14 +92,13 @@ add_executable(
 
     ${TESTTREES}
 
+    ${TESTGRAPHS}
+
     test/heap/test_heap.cpp
 
     test/disjoint_set/test_disjoint_set.cpp
 
     test/algorithms/test_flood_fill.cpp
-
-    test/graph/test_adjacency_matrix.cpp
-    test/graph/test_adjacency_list.cpp
     )
 
 add_dependencies(unit_tests googletest)
