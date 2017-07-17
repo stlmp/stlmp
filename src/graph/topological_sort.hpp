@@ -3,7 +3,8 @@
 #include <stack>
 using namespace std;
 
-void _ts(int v, bool visited[], stack<int> st, vector< vector<int> > graph){
+// util function
+void _ts(int v, bool visited[], stack<int> *st, vector< vector<int> > graph){
 	visited[v] = true;
 
 	// go to all verices adjacent to this one
@@ -12,26 +13,32 @@ void _ts(int v, bool visited[], stack<int> st, vector< vector<int> > graph){
 		if(!visited[new_node]) _ts(new_node, visited, st, graph);
 	}
 
-	st.push(v);
+	st->push(v);
 }
 
-void topological_sort(vector< vector<int> > graph){
-	int vetices = graph.size();
+stack<int> topological_sort(vector< vector<int> > graph){
+	int vertices = graph.size();
 	stack<int> st;
 	
 	// mark all vertices as not visited
-	bool *visited = new bool[vetices];
+	bool *visited = new bool[vertices];
 	for(int i=0;i<vertices;i++) visited[i] = false;
 
 	// call helper function to store topological sort
 	// starting from all vertices one by one
 	for(int i=0;i<vertices;i++){
-		if(!visited[i]) _ts(i, visited, st, graph);
+		if(!visited[i]) _ts(i, visited, &st, graph);
 	}
 
+	stack<int> st2;
+	st2 = st;
+
+	cout << "Printing graph after topological sort: " << endl;
 	while(!st.empty()){
 		cout << st.top() << " ";
 		st.pop();
 	}
 	cout << endl;
+
+	return st2;
 }
