@@ -22,6 +22,7 @@ src
 ├── graph
 │   ├── adjacency_list.hpp       # graph implementation with adjacency list
 │   └── adjacency_matrix.hpp     # graph implementation with adjacency matrix
+│   └── topological_sort.hpp     # topological sort (adjacency list)
 ├── heap
 │   └── heap.hpp                 # heap implementation
 ├── linked_list
@@ -41,6 +42,7 @@ src
 │   └── stack.hpp                # stack implementation
 └── tree
     ├── bst.hpp                  # general tree implementation
+    ├── segment_tree.hpp         # segment tree implementation
     └── tree.hpp                 # binary search tree
 ```
 
