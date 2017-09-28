@@ -1,14 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
  
-void heap_sort(int *a, int n)
+void heapsort(int a[], int size)
 {
-    int i, temp;
-    for (i = n; i >= 2; i--)
-    {
-        temp = a[i];
-        a[i] = a[1];
-        a[1] = temp;
-        max_heapify(a, 1, i - 1);
-    }
+  int l = 0, r = size;
+  make_heap(a, size);
+ 
+  while ( r > 1)
+  {
+    int tmp = a[0];
+    --r;
+    a[0] = a[r];
+    a[r] = tmp;
+    sift(a, r,0);
+  }
 }
