@@ -2,7 +2,7 @@
 using namespace std;
 
 void shell_sort(int length, int v[]){
-	int j, temp, swp;
+    int j, temp, swp;
     int d = length/2;
     swp = 1;
     while(swp || (d > 1)){
