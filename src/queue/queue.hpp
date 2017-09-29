@@ -34,7 +34,7 @@ struct queuemp{
 	T pop(){
 		if(this->size == 0){
 			cout << "queue is empty, can't pop" << endl;
-			return '\0';
+			return (T)'\0';
 		}
 		if(this->size == 1){
 			T data = this->head->data;
