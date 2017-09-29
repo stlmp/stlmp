@@ -10,6 +10,7 @@
 ---
 
 Before submitting, pleqase check if your submission conforms with the following checklist:
+- [ ] Add tests for all implementations.
 - [ ] Descriptive pull request message
 - [ ] Descriptive commit messages
 - [ ] write test cases as written in the test folder
