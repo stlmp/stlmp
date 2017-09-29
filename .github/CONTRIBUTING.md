@@ -46,6 +46,7 @@ $ ./build_after_cmake.sh
 #### Sending a pull request
 Push to your fork and [submit a pull request](https://github.com/stlmp/stlmp/compare/). Follow the [pull request template](https://github.com/stlmp/stlmp/blob/master/.github/PULL_REQUEST_TEMPLATE.md)  
 put source file in src folder according to the existing structure.
+- [ ] Add tests for all implementations.
 - [ ] Descriptive pull request message
 - [ ] Descriptive commit messages
 - [ ] write test cases as written in the test folder
