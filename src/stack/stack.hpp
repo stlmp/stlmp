@@ -1,64 +1,75 @@
-#include <bits/stdc++.h>
-#include "../linked_list/ll.hpp"
-using namespace std;
+#ifndef STACKMP_H
+#define STACKMP_H
 
 template<class T>
-struct stackmp{
-	ll_node<T> *top;
-	int capacity; // number of elements the stack can contain
-	int size; // number of elements in the stack
-
-	stackmp(int cap) : capacity(cap),size(0) {}
-
-	void push(T new_data){
-		if(size == capacity){
-			cout << "Stack is full! Cannot push new element" << endl;
-			return;
+class stackmp
+{
+    struct node{
+        node(T v, node* nxt){value = v; next = nxt;}
+        T value;
+        node* next;
+    };
+    
+    public:
+        stackmp(){
+			tail = nullptr;
+			sz = 0;
 		}
-		ll_node<T> *new_node = create_node(new_data);
-		ll_node<T> *temp_node = this->top;
-		new_node->next = temp_node;
-		this->top = new_node;
-		size++;
-	}
-
-	void print(){
-		ll_node<T> *temp_node = this->top;
-		if(size == 0){
-			cout << "Stack is empty" << endl;
-			return;
+        stackmp(T value, int intial_size){
+			sz = intial_size;
+			tail = nullptr;
+			while(intial_size > 0)
+			{
+				node* temp = new node(value, tail);
+				tail = temp;
+				intial_size--;
+			}
 		}
-		cout << "Printing stack:" << endl;
-		for(int i=0;i<this->size;i++){
-			cout << temp_node->data << ' ';
-			temp_node = temp_node->next;
+        T& peek(){
+			try{
+				if(tail == nullptr)
+					throw(0);
+			}catch(...){
+				std::cout << "EmptyStack" << std::endl;
+			}
+			return tail->value;
 		}
-		cout << endl;
-	}
-
-	T pop(){
-		if(size == 0){
-			cout << "Stack is empty, can't pop" << endl;
-			return '\0';
+        void pop(){
+			sz--;
+			if(tail == nullptr)
+				return;
+			node* temp = tail;
+			tail = tail->next;
+			delete temp;
 		}
-		T data = this->top->data;
-		this->top = this->top->next;
-		size--;
-		return data;
-	}
-
-	T peek(){
-		return this->top->data;
-	}
+        void push(T value){
+			node* temp = new node(value, tail);
+			tail = temp;
+			sz++;
+		}
+        int size(){
+			return sz;
+		}
+        void print(){
+			node* temp = tail;
+			while(temp != nullptr)
+			{
+				std::cout << temp->value << " ";
+				temp = temp->next;
+			}
+		}
+        virtual ~stackmp(){
+			node* temp = tail;
+			while(temp != nullptr)
+			{
+				temp = tail;
+				tail = tail->next;
+				delete temp;
+			}
+		}
+    private:
+        node* tail;
+        int sz;
 };
 
-template<class T>
-int get_size(stackmp<T> *s){
-	return s->size;
-}
-
-template<class T>
-int get_capacity(stackmp<T> *s){
-	return s->capacity;
-}
-
+#endif // STACKMP_H
