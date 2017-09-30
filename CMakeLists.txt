@@ -18,6 +18,7 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/src/stack
     ${PROJECT_SOURCE_DIR}/src/queue
     ${PROJECT_SOURCE_DIR}/src/sorting
+    ${PROJECT_SOURCE_DIR}/src/search
     ${PROJECT_SOURCE_DIR}/src/tree
     ${PROJECT_SOURCE_DIR}/src/heap
     ${PROJECT_SOURCE_DIR}/src/disjoint_set
@@ -30,6 +31,9 @@ file(GLOB TESTLINKEDLIST test/linked_list/*.cpp)
 
 file(GLOB SORTING src/sorting/*.hpp)
 file(GLOB TESTSORTING test/sorting/*.cpp)
+
+file(GLOB SEARCH src/search/*.hpp)
+file(GLOB TESTSEARCH test/search/*.cpp)
 
 file(GLOB TREES src/tree/*.hpp)
 file(GLOB TESTTREES test/tree/*.cpp)
