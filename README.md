@@ -53,12 +53,6 @@ $ sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
 $ sudo apt-get update -qq
 $ sudo apt-get install g++-6
 $ sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
-
-
-- Run in a Terminal
-```
-git submodule update --init --recursive
-```
 ```
  - Run build script
 ```
