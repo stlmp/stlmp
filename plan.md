@@ -31,7 +31,7 @@
  - [ ] Searching
    - [ ] Binary search
    - [ ] Jump search
-   - [ ] Fibonacci search
+   - [x] Fibonacci search
    - [x] Depth First Search 
    - [x] Breadth First Search
    - [ ] Kosaraju's Algorithm (find all SCCs)

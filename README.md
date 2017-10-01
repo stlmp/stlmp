@@ -38,6 +38,8 @@ src
 │   ├── quick.hpp                # quick sort
 │   ├── radix.hpp                # radix sort
 │   └── selection.hpp            # selection sort
+├── search
+│   ├── fibonacci.hpp            #fibonacci search
 ├── stack
 │   └── stack.hpp                # stack implementation
 └── tree
