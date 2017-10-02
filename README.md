@@ -21,7 +21,7 @@ src
 │   └── disjoint_set.hpp         # disjoint set implementation
 ├── graph
 │   ├── adjacency_list.hpp       # graph implementation with adjacency list
-│   └── adjacency_matrix.hpp     # graph implementation with adjacency matrix
+│   ├── adjacency_matrix.hpp     # graph implementation with adjacency matrix
 │   └── topological_sort.hpp     # topological sort (adjacency list)
 ├── heap
 │   └── heap.hpp                 # heap implementation
@@ -33,13 +33,15 @@ src
 │   └── queue.hpp                # queue implementation
 ├── sorting
 │   ├── bubble.hpp               # bubble sort
-│   └── insertion.hpp            # insertion sort
+│   ├── insertion.hpp            # insertion sort
 │   ├── merge.hpp                # merge sort
 │   ├── quick.hpp                # quick sort
 │   ├── radix.hpp                # radix sort
-│   └── selection.hpp            # selection sort
+│   ├── selection.hpp            # selection sort
+│   └── shell.hpp                # shell sort
 ├── search
-│   ├── fibonacci.hpp            #fibonacci search
+│   ├── binary.hpp               # binary search
+│   └── fibonacci.hpp            # fibonacci search
 ├── stack
 │   └── stack.hpp                # stack implementation
 └── tree

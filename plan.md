@@ -20,7 +20,7 @@
    - [ ] Topological sort
    - [ ] Heap sort
    - [x] Bucket sort
-   - [ ] Shell sort
+   - [x] Shell sort
    
  - [x] [heap](https://github.com/stlmp/stlmp/blob/master/src/heap/heap.hpp)
    
