@@ -18,6 +18,7 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/src/stack
     ${PROJECT_SOURCE_DIR}/src/queue
     ${PROJECT_SOURCE_DIR}/src/sorting
+    ${PROJECT_SOURCE_DIR}/src/search
     ${PROJECT_SOURCE_DIR}/src/tree
     ${PROJECT_SOURCE_DIR}/src/heap
     ${PROJECT_SOURCE_DIR}/src/disjoint_set
@@ -25,8 +26,14 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/src/graph
     )
 
+file(GLOB LINKEDLIST src/linked_list/*.hpp)
+file(GLOB TESTLINKEDLIST test/linked_list/*.cpp)
+
 file(GLOB SORTING src/sorting/*.hpp)
 file(GLOB TESTSORTING test/sorting/*.cpp)
+
+file(GLOB SEARCH src/search/*.hpp)
+file(GLOB TESTSEARCH test/search/*.cpp)
 
 file(GLOB TREES src/tree/*.hpp)
 file(GLOB TESTTREES test/tree/*.cpp)
@@ -34,12 +41,14 @@ file(GLOB TESTTREES test/tree/*.cpp)
 file(GLOB GRAPHS src/graph/*.hpp)
 file(GLOB TESTGRAPHS test/graph/*.cpp)
 
+file(GLOB ALGORITHMS src/algorithms/*.hpp)
+file(GLOB TESTALGORITHMS test/algorithms/*.cpp)
+
 add_library(
     stlmp
     src/main.cpp
 
-    src/linked_list/ll.hpp
-    src/linked_list/dll.hpp
+    ${LINKEDLIST}
 
     src/stack/stack.hpp
 
@@ -55,7 +64,7 @@ add_library(
 
     src/disjoint_set/disjoint_set.hpp
 
-    src/algorithms/flood_fill.hpp
+    ${ALGORITHMS}
     )
 
 set(GOOGLETEST_ROOT external/googletest/googletest CACHE STRING "Google Test source root")
@@ -81,8 +90,7 @@ add_executable(
 
     test/main.cpp
 
-    test/linked_list/test_ll.cpp
-    test/linked_list/test_dll.cpp
+    ${TESTLINKEDLIST}
 
     test/stack/test_stack.cpp
 
@@ -98,7 +106,7 @@ add_executable(
 
     test/disjoint_set/test_disjoint_set.cpp
 
-    test/algorithms/test_flood_fill.cpp
+    ${TESTALGORITHMS}
     )
 
 add_dependencies(unit_tests googletest)

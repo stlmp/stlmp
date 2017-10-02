@@ -39,6 +39,9 @@ src
 │   ├── radix.hpp                # radix sort
 │   ├── selection.hpp            # selection sort
 │   └── shell.hpp                # shell sort
+├── search
+│   ├── binary.hpp               # binary search
+│   └── fibonacci.hpp            # fibonacci search
 ├── stack
 │   └── stack.hpp                # stack implementation
 └── tree
