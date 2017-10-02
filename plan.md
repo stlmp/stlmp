@@ -29,7 +29,7 @@
    - [x] [BST](https://github.com/stlmp/stlmp/blob/master/src/tree/bst.hpp)
 
  - [ ] Searching
-   - [ ] Binary search
+   - [x] Binary search
    - [ ] Jump search
    - [x] Fibonacci search
    - [x] Depth First Search 
