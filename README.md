@@ -38,6 +38,7 @@ src
 │   ├── quick.hpp                # quick sort
 │   ├── radix.hpp                # radix sort
 │   ├── selection.hpp            # selection sort
+│   ├── heap.hpp                 # heap sort
 │   └── shell.hpp                # shell sort
 ├── search
 │   ├── binary.hpp               # binary search

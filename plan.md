@@ -18,7 +18,7 @@
    - [x] Selection sort
    - [x] Quick sort
    - [ ] Topological sort
-   - [ ] Heap sort
+   - [x] Heap sort
    - [x] Bucket sort
    - [x] Shell sort
    
