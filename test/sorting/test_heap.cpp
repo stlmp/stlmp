@@ -1,6 +1,5 @@
 #include "gtest/gtest.h"
-#include "heap.hpp"
-#include <bits/stdc++.h>
+#include "heap_sort.hpp"
 using namespace std;
 
 TEST(heap_sort, all_tests){
