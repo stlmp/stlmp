@@ -32,7 +32,6 @@ void relax(int,int,int);		//  relaxation of each node next to the one passed
 			B : 10
 			C : 11
 			D : 15
-		
 */
 map<char, int> dijkstra_shortest_path(char s, vector<vector<int> > graph)
 {	int n = graph.size();
