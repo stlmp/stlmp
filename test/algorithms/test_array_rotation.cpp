@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "array_roatation.hpp"
+#include "array_rotation.hpp"
 #include <iostream>
 
 using namespace std;
