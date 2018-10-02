@@ -1,0 +1,84 @@
+#include <iostream>
+#include <bits/stdc++.h>
+#define num 9 // you can enter your own value of number of vertices and modify the graph in main function
+
+
+using namespace std;
+
+int min_Distance(int dist_values[], bool storage[])
+{
+   int mini = INT_MAX, min_index;
+
+   for (int v = 0; v < num; v++)
+     if (!storage[v] && dist_values[v] <= mini)
+         mini = dist_values[v], min_index = v;
+
+   return min_index;
+}
+
+
+int printSolution(int dist_values[])
+{
+   cout<<"Vertex      Distance"<<endl;
+   for (int i = 0; i < num; i++)
+   {
+        cout<<i<<"            "<<dist_values[i]<<endl;
+   }
+}
+
+
+void dijkstra ( int graph[num][num], int var )
+{
+    int dist_values[num];
+    bool storage[num];
+
+
+
+     for (int i = 0; i < num; i++)
+     {
+            dist_values[i] = INT_MAX, storage[i] = false;
+     }
+
+
+     dist_values[var] = 0;
+
+
+     for (int c = 0; c < (num-1); c++)
+     {
+
+
+       int u = min_Distance(dist_values, storage);
+
+
+       storage[u] = true;
+
+
+       for (int v = 0; v < num; v++)
+       {
+            if (!storage[v] && graph[u][v] && dist_values[u] != INT_MAX  && dist_values[u]+graph[u][v] < dist_values[v])
+            {
+                dist_values[v] = dist_values[u] + graph[u][v];
+            }
+       }
+     }
+
+     printSolution(dist_values);
+}
+
+int main()
+{
+
+   int graph[num][num]={{0, 4, 0, 0, 0, 0, 0, 8, 0},
+                      {4, 0, 8, 0, 0, 0, 0, 11, 0},
+                      {0, 8, 0, 7, 0, 4, 0, 0, 2},
+                      {0, 0, 7, 0, 9, 14, 0, 0, 0},
+                      {0, 0, 0, 9, 0, 10, 0, 0, 0},
+                      {0, 0, 4, 14, 10, 0, 2, 0, 0},
+                      {0, 0, 0, 0, 0, 2, 0, 1, 6},
+                      {8, 11, 0, 0, 0, 0, 1, 0, 7},
+                      {0, 0, 2, 0, 0, 0, 6, 7, 0}};
+
+    dijkstra(graph, 0);
+
+    return 0;
+}
