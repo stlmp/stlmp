@@ -17,6 +17,7 @@
 src
 ├── algorithms
 │   └── flood_fill.hpp           # flood fill algorithm
+│   └── array_rotation.hpp       # array rotation algorithm using reversing
 ├── disjoint_set
 │   └── disjoint_set.hpp         # disjoint set implementation
 ├── graph
