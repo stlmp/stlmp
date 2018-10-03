@@ -1,9 +1,15 @@
+/*
+ * test_dijkstra.cpp
+ * 
+ * Created On: 3-Oct-182018
+ *     Author: hplapi
+ */
 #include "gtest/gtest.h"
 #include "djikstra_shortest_path.hpp"
 
-void print_path(char, map<char, int>);
+int print_path(char, map<char, int>);
 
-int main(){
+TEST(dijkstra_shortest_path, all_tests){
 	int n=5;							// number of nodes in graph
 	char s='A';							// source node
 	vector<vector<int> > graph;			//  directed graph
@@ -29,12 +35,13 @@ int main(){
 	graph.push_back(x);
 
 	paths = dijkstra_shortest_path(s, graph);
-	print_path(s, paths);
-	return 0;
+	int res = print_path(s, paths);
+	ASSERT_EQ(res, 1);
 }
 
-void print_path(char s, map<char, int> s_path)
+int print_path(char s, map<char, int> s_path)
 {	for(int i=0;i<s_path.size();i++)
 		cout<<"\n"<<(char)('A'+i)<<" : "<<s_path[(char)('A'+i)];
+	return 1;
 	}
 
