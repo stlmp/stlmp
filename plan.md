@@ -27,6 +27,14 @@
  - [x] [tree](https://github.com/stlmp/stlmp/blob/master/src/tree)
    - [x] [general tree](https://github.com/stlmp/stlmp/blob/master/src/tree/tree.hpp)
    - [x] [BST](https://github.com/stlmp/stlmp/blob/master/src/tree/bst.hpp)
+   - [ ] Trie
+   - [ ] Red-black
+   - [ ] AVL
+   
+ - [ ] graphs
+   - [x] Dijkstra's algorithm
+   - [ ] Bellman Ford
+   - [ ] Floyd Warshall
 
  - [ ] Searching
    - [x] Binary search
@@ -35,6 +43,7 @@
    - [x] Depth First Search 
    - [x] Breadth First Search
    - [ ] Kosaraju's Algorithm (find all SCCs)
+   - [ ] Interpolation search
 
  - [ ] Backtrack
    - [ ] anagram
@@ -54,3 +63,6 @@
 
  - [ ] Array
    - [ ] next_permutation
+   - [x] count inversions in array
+   - [x] array rotation
+
