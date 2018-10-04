@@ -43,7 +43,8 @@ src
 │   └── shell.hpp                # shell sort
 ├── search
 │   ├── binary.hpp               # binary search
-│   └── fibonacci.hpp            # fibonacci search
+│   ├── fibonacci.hpp            # fibonacci search
+│   └── jump.hpp                 # jump search
 ├── stack
 │   └── stack.hpp                # stack implementation
 └── tree

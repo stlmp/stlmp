@@ -30,7 +30,7 @@
 
  - [ ] Searching
    - [x] Binary search
-   - [ ] Jump search
+   - [X] Jump search
    - [x] Fibonacci search
    - [x] Depth First Search 
    - [x] Breadth First Search
