@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "RedBlackTree.h"
+#include "RedBlackTree.hpp"
 #include "tree.hpp"
 #include "bst.hpp"
 #include "segment_tree.hpp"
