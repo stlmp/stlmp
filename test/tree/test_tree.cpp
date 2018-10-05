@@ -1,4 +1,6 @@
 #include "gtest/gtest.h"
+#include "RedBlackTree.hpp"
+#include "Kruskels.hpp"
 #include "tree.hpp"
 #include "bst.hpp"
 #include "segment_tree.hpp"
@@ -90,3 +92,16 @@ TEST(segment_tree, all_tests){
 	ASSERT_EQ(st->get_sum(0, 4), 15);
 }
 
+TEST(rbtree, all_tests){
+	rbtree obj;
+	obj.insert();
+	obj.rb_delete();
+	obj.disp();
+}
+
+
+TEST(edge, all_tests)
+{
+	input();
+	kruskel();
+}

@@ -51,6 +51,8 @@ src
     ├── bst.hpp                  # general tree implementation
     ├── segment_tree.hpp         # segment tree implementation
     └── tree.hpp                 # binary search tree
+    └── redblacktree.hpp         # red black tree
+    └── kruskels.hpp             # kruskels algorithm
 ```
 
 ### Building
