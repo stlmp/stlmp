@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "RedBlackTree.hpp"
+#include "Kruskels.hpp"
 #include "tree.hpp"
 #include "bst.hpp"
 #include "segment_tree.hpp"
@@ -133,4 +134,11 @@ TEST(rbtree, all_tests){
 		cout<<"\n";
 	}while(y != 1);
 	
+}
+
+
+TEST(edge, all_tests)
+{
+	input();
+	kruskel();
 }
