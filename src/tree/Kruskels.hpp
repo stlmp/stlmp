@@ -97,12 +97,3 @@ void sort()
 	}
 }
 
-
-int main()
-{
-	//clrscr();
-	input();
-	kruskel();
-	//getch();
-}
-
