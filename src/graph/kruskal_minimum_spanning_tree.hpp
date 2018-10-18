@@ -2,30 +2,15 @@
 // Created by brand-temp on 8/10/2018.
 //
 
-// Whole thing needs a redesign
-// return vector of edges
-// return total weight and vecotr of edges?
-// yikes...
-// Ideas.....
-/*
-1. send in pointer, return weight of mst, and the thing at the pointer is changed to the tree
-2. return pair of totaly weight then edges
-*/
-
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
-
 /**
- * kruskal_minimum_spanning_tree - implements the Kruskal algorithm
- * @tparam T - The label type for each vertex in the graph, i.e. int or string
- * @param v - vector of Ts representing each vertex in the graph
- * @param e - vector of pairs of integers and T pairs representing each edge in the graph
- * @return a vector of edges and their weights
+ *
+ * @tparam T - The type of label used for each edge
  */
-
 template<class T>
 struct edge {
     T start_point;
@@ -36,6 +21,15 @@ struct edge {
         return weight < rhs.weight;
     }
 };
+
+/**
+ *
+ * @tparam T - The type of the label for your vertices - e.g. char or string.
+ * @param v - A vector which names each vertex in the original graph
+ * @param e - A vector of edges in the graph
+ * @return a pair which stores the final total weight of the MST, and the edges of the MST
+ */
+
 template<class T>
 pair<int, vector<edge<T>>> kruskal_minimum_spanning_tree(vector<T> v, vector<edge<T>> e) {
     // make vector of "trees"
