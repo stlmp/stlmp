@@ -5,7 +5,7 @@
 <div align="center">
 
   <h1>stlmp</h1>
-  <p>Implementation of data structures and algorithms in C++, like the Standard Template Library (STL). Tests written using <a href="https://code.google.com/p/googletest" target="_blank">googletest</a>, using the template <a href="https://github.com/bast/gtest-demo" target="_blank">bast/gtest-demo</a>.</p>
+  <p>Data Structures and Algorithms library in C++</p>
   <a href="https://travis-ci.org/stlmp/stlmp/builds" target="_blank"><img src="https://travis-ci.org/stlmp/stlmp.svg?branch=master" alt="Build Status"></a> 
   <a href="https://manparvesh.mit-license.org/" target="_blank"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a> 
   
@@ -54,13 +54,6 @@ src
 ```
 
 ### Building
- - Install C++17
-```
-$ sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-$ sudo apt-get update -qq
-$ sudo apt-get install g++-6
-$ sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
-```
  - Run build script
 ```
 $ ./build.sh
@@ -70,7 +63,15 @@ $ ./build.sh
 $ ./build_after_cmake.sh
 ```
 ### Plan
-You can take a look at the implementation plan [here](https://github.com/stlmp/stlmp/blob/master/plan.md)
+You can take a look at the implementation plan [in the issues](https://github.com/stlmp/stlmp/issues)
 
 ### License
 [MIT](https://manparvesh.mit-license.org)
+
+```
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
