@@ -1,15 +1,12 @@
-#include "gtest/gtest.h"
-#include "disjoint_set.hpp"
-#include <iostream>
+#include <cassert>
+#include "stlmp.h"
 
-using namespace std;
+int main() {
+    auto *ds = new stlmp::DisjointSet::DisjointSet(10);
 
-TEST(disjoint_set, all_tests){
-	disjoint_set *ds = new disjoint_set(10);
-
-	ds->merge(4, 5);
-	ds->merge(1, 2);
-	ds->merge(2, 4);
-	ASSERT_TRUE(ds->connected(1, 5));
-	ASSERT_FALSE(ds->connected(1, 3));
+    ds->merge(4, 5);
+    ds->merge(1, 2);
+    ds->merge(2, 4);
+    assert(ds->connected(1, 5));
+    assert(!ds->connected(1, 3));
 }

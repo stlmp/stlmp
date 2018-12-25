@@ -12,6 +12,28 @@ namespace stlmp {
 
         int CountInversionsInArray(int array[], int n);
     }
+
+    namespace DisjointSet {
+        class DisjointSet {
+        private:
+            int *id, *size, count;
+        public:
+            explicit DisjointSet(int n);
+
+            int getCount();
+
+            int find(int n);
+
+            void merge(int x, int y);
+
+            bool connected(int x, int y);
+
+            ~DisjointSet() {
+                delete[] id;
+                delete[] size;
+            }
+        };
+    }
 }
 
 #endif

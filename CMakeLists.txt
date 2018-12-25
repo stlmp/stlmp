@@ -14,9 +14,14 @@ include_directories(include)
 
 add_library(stlmp
         include/stlmp.h
+
+        # algorithms
         src/algorithms/array_rotation.cpp
         src/algorithms/inversions.cpp
         src/algorithms/flood_fill.cpp
+
+        # disjoint set
+        src/disjoint_set/DisjointSet.cpp
         )
 
 include(CTest)
@@ -39,9 +44,9 @@ add_executable(test_count_inversions
 target_link_libraries(test_count_inversions stlmp)
 add_test(ALGO_INVERSIONS_IN_ARRAY test_count_inversions)
 
-########### disjoint set
-#add_executable(test_disjoint_set
-#        test/disjoint_set/test_disjoint_set.cpp)
-#target_link_libraries(test_disjoint_set stlmp)
-#add_test(DISJOINT_SET test_disjoint_set)
+########## disjoint set
+add_executable(test_disjoint_set
+        test/disjoint_set/test_disjoint_set.cpp)
+target_link_libraries(test_disjoint_set stlmp)
+add_test(DISJOINT_SET test_disjoint_set)
 
