@@ -1,6 +1,8 @@
 #ifndef __STLMP__
 #define __STLMP__
 
+#include <cstdlib>
+
 namespace stlmp {
     namespace algorithms {
         /**
@@ -37,46 +39,76 @@ namespace stlmp {
 
     namespace LinkedList {
         template<class T>
-        struct ll_node{
+        class LLNode {
+        public:
             T data;
-            ll_node *next;
+            LLNode *next;
+
+            explicit LLNode<T>(T newData) : data(newData), next(NULL) {}
         };
 
         template<class T>
-        ll_node<T> *create_node(T new_data);
+        class SinglyLinkedList {
+        private:
+            LLNode<T> head;
+        public:
+            explicit SinglyLinkedList(T newData) : head(new LLNode(newData)) {}
+
+            void printList(LLNode<T> head);
+
+            int getLength(LLNode<T> head);
+        };
+
 
         template<class T>
-        void print_list(struct ll_node<T> *head);
+        LLNode<T> *create_list_from_array(int length, T arr[]);
 
         template<class T>
-        int get_length(struct ll_node<T> *head);
+        void push(LLNode<T> **head_ref, T data);
 
         template<class T>
-        ll_node<T> *create_list_from_array(int length, T arr[]);
+        void insert_after(LLNode<T> *prev_node, T data);
 
         template<class T>
-        void push(ll_node<T> **head_ref, T data);
+        void append(LLNode<T> **head_ref, T data);
 
         template<class T>
-        void insert_after(ll_node<T> *prev_node, T data);
+        void delete_node_with_data(LLNode<T> **head_ref, int data);
 
         template<class T>
-        void append(ll_node<T> **head_ref, T data);
+        int search_key(LLNode<T> *head, T key);
 
         template<class T>
-        void delete_node_with_data(ll_node<T> **head_ref, int data);
+        void reverse_list(LLNode<T> **head_ref);
 
         template<class T>
-        int search_key(ll_node<T> *head, T key);
+        void move_next(LLNode<T> **head_ref);
 
         template<class T>
-        void reverse_list(ll_node<T> **head_ref);
+        bool compare_lists(LLNode<T> *head1, LLNode<T> *head2);
+    }
+
+    namespace Queue {
+        template<class T>
+        struct Queue {
+            stlmp::LinkedList::LLNode<T> *head;
+            int size; // number of elements in the queue
+
+            Queue() : size(0) {}
+
+            void push(T new_data);
+
+            void print();
+
+            T pop();
+
+            T peek();
+        };
 
         template<class T>
-        void move_next(ll_node<T> **head_ref);
-
-        template<class T>
-        bool compare_lists(ll_node<T> *head1, ll_node<T> *head2);
+        int get_size(Queue<T> *s) {
+            return s->size;
+        }
     }
 }
 

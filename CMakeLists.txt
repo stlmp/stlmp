@@ -29,10 +29,10 @@ add_library(stlmp
         src/disjoint_set/DisjointSet.cpp
 
         # graphs
-        ${GRAPHS}
+#        ${GRAPHS}
 
         # queue
-        src/queue/queue.cpp
+#        src/queue/Queue.cpp
 
         # linked list
         ${LINKEDLIST}
@@ -65,11 +65,10 @@ target_link_libraries(test_disjoint_set stlmp)
 add_test(DISJOINT_SET test_disjoint_set)
 
 ########## queue
-add_executable(test_queue
-        test/queue/test_queue.cpp)
-target_link_libraries(test_queue stlmp)
-add_test(QUEUE test_queue)
-
+#add_executable(test_queue
+#        test/queue/test_queue.cpp)
+#target_link_libraries(test_queue stlmp)
+#add_test(QUEUE test_queue)
 
 ########## linked list
 add_executable(test_linked_list
