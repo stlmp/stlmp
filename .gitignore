@@ -47,3 +47,7 @@ CTestTestfile.cmake
 
 # files to check the functionality
 check_*.cpp
+
+.idea
+*.iml
+cmake-build-debug

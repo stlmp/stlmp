@@ -1,10 +1,12 @@
+#!/usr/bin/env bash
+
 # define colors
 red=`tput setaf 1`
 green=`tput setaf 2`
 reset=`tput sgr0`
 
 # create build directory
-if [ -d "build" ]; then
+if [[ -d "build" ]]; then
 	echo 'directory build exists, so not creating again'
 else
 	mkdir build
@@ -19,13 +21,13 @@ rm -r *
 echo 'running cmake'
 cmake ..
 
-if [ $? -eq 0 ]; then
+if [[ $? -eq 0 ]]; then
     printf "${green}cmake succeeded${reset}\n"
 	echo 'running make'
 	make
-	if [ $? -eq 0 ]; then
+	if [[ $? -eq 0 ]]; then
 	    printf "${green}make succeeded, running tests${reset}\n"
-	    ./unit_tests
+	    make test
 	else
 	    printf "${red}make failed${reset}\n"
 	fi
