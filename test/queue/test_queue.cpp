@@ -1,9 +1,6 @@
-#include "gtest/gtest.h"
-#include "queue.hpp"
-#include <bits/stdc++.h>
-using namespace std;
+#include "stlmp.h"
 
-TEST(queue, all_tests){
+int main(){
 	int foo[] = {1, 2, 3, 4, 5};
 	queuemp<int> *q = new queuemp<int>(); 
 	for(int element : foo){

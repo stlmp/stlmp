@@ -12,16 +12,30 @@ endif ()
 
 include_directories(include)
 
+file(GLOB LINKEDLIST src/linked_list/*.cpp)
+file(GLOB SORTING src/sorting/*.cpp)
+file(GLOB SEARCH src/search/*.cpp)
+file(GLOB TREES src/tree/*.cpp)
+file(GLOB GRAPHS src/graph/*.cpp)
+file(GLOB ALGORITHMS src/algorithms/*.cpp)
+
 add_library(stlmp
         include/stlmp.h
 
         # algorithms
-        src/algorithms/array_rotation.cpp
-        src/algorithms/inversions.cpp
-        src/algorithms/flood_fill.cpp
+        ${ALGORITHMS}
 
         # disjoint set
         src/disjoint_set/DisjointSet.cpp
+
+        # graphs
+        ${GRAPHS}
+
+        # queue
+        src/queue/queue.cpp
+
+        # linked list
+        ${LINKEDLIST}
         )
 
 include(CTest)
@@ -49,4 +63,23 @@ add_executable(test_disjoint_set
         test/disjoint_set/test_disjoint_set.cpp)
 target_link_libraries(test_disjoint_set stlmp)
 add_test(DISJOINT_SET test_disjoint_set)
+
+########## queue
+add_executable(test_queue
+        test/queue/test_queue.cpp)
+target_link_libraries(test_queue stlmp)
+add_test(QUEUE test_queue)
+
+
+########## linked list
+add_executable(test_linked_list
+        test/linked_list/test_ll.cpp)
+target_link_libraries(test_linked_list stlmp)
+add_test(LINKED_LIST test_linked_list)
+
+#add_executable(test_doubly_linked_list
+#        test/linked_list/test_dll.cpp)
+#target_link_libraries(test_doubly_linked_list stlmp)
+#add_test(DOUBLY_LINKED_LIST test_doubly_linked_list)
+# todo
 

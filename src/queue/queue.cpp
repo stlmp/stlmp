@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-#include "../linked_list/ll.hpp"
-using namespace std;
 
 template<class T>
 struct queuemp{

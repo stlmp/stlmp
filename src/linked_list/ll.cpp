@@ -1,49 +1,45 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-template<class T>
-struct ll_node{
-	T data;
-	ll_node *next;
-};
+#include <cstdlib>
+#include <iostream>
+#include "../../include/stlmp.h"
+using namespace stlmp::LinkedList;
 
 // assign value to node and return
 template<class T>
-ll_node<T> *create_node(T new_data){
-	ll_node<T> *new_node = NULL;
-	new_node = new ll_node<T>;
-	new_node->data = new_data;
-	new_node->next = NULL;
-	return new_node;
+ll_node<T> *stlmp::LinkedList::create_node(T new_data) {
+    ll_node<T> *new_node = NULL;
+    new_node = new ll_node<T>;
+    new_node->data = new_data;
+    new_node->next = NULL;
+    return new_node;
 }
 
 // print list
 template<class T>
-void print_list(struct ll_node<T> *head){
+void stlmp::LinkedList::print_list(ll_node<T> *head) {
 	while(head){
-		cout << head->data << " ";
+		std::cout << head->data << " ";
 		head = head->next;
 	}
-	cout << endl;
+	std::cout << std::endl;
 }
 
 // get length of list
 template<class T>
-int get_length(struct ll_node<T> *head){
+int stlmp::LinkedList::get_length(ll_node<T> *head) {
 	int length = 0;
-	cout << "List:\n";
+	std::cout << "List:\n";
 	while(head){
 		length++;
-		cout << head->data << " ";
+		std::cout << head->data << " ";
 		head = head->next;
 	}
-	cout << endl;
+	std::cout << std::endl;
 	return length;
 }
 
 // convert an array to a linked list
 template<class T>
-ll_node<T> *create_list_from_array(int length, T arr[]){
+ll_node<T> *stlmp::LinkedList::create_list_from_array(int length, T *arr) {
 	if(length == 0) return NULL;
 	ll_node<T> *head = create_node(arr[0]);
 	ll_node<T> *temp = head;
@@ -58,7 +54,7 @@ ll_node<T> *create_list_from_array(int length, T arr[]){
 
 // push at the starting of a linked list
 template<class T>
-void push(ll_node<T> **head_ref, T data){
+void stlmp::LinkedList::push(ll_node<T> **head_ref, T data) {
 	ll_node<T> *new_node = create_node(data);
 	new_node->next = *head_ref;
 	*head_ref = new_node;
@@ -66,7 +62,7 @@ void push(ll_node<T> **head_ref, T data){
 
 // insert a node after given node
 template<class T>
-void insert_after(ll_node<T> *prev_node, T data){
+void stlmp::LinkedList::insert_after(ll_node<T> *prev_node, T data) {
 	if (prev_node == NULL) return;
 	ll_node<T> *new_node = create_node(data);
 	new_node->next = prev_node->next;
@@ -75,12 +71,12 @@ void insert_after(ll_node<T> *prev_node, T data){
 
 // given a reference pointer to the head, appends a new node at the end.
 template<class T>
-void append(ll_node<T> **head_ref, T data){
+void stlmp::LinkedList::append(ll_node<T> **head_ref, T data) {
 	ll_node<T> *new_node = create_node(data);
 	if(*head_ref == NULL){
 		*head_ref = new_node;
 		return;
-	} 
+	}
 	ll_node<T> *last_node = *head_ref;
 	while(last_node->next) last_node = last_node->next;
 	last_node->next = new_node;
@@ -88,7 +84,7 @@ void append(ll_node<T> **head_ref, T data){
 
 // delete the node which contains the given data
 template<class T>
-void delete_node_with_data(ll_node<T> **head_ref, int data){
+void stlmp::LinkedList::delete_node_with_data(ll_node<T> **head_ref, int data) {
 	if(*head_ref == NULL) return;
 	ll_node<T> *temp_node = *head_ref, *prev_node;
 
@@ -108,11 +104,11 @@ void delete_node_with_data(ll_node<T> **head_ref, int data){
 
 // get position of a key in linked list
 template<class T>
-int search_key(ll_node<T> *head, T key){
+int stlmp::LinkedList::search_key(ll_node<T> *head, T key) {
 	int position = -1;
 	while(head){
 		position++;
-		cout << "pos: " << position << " data: " << head->data << endl;
+		std::cout << "pos: " << position << " data: " << head->data << std::endl;
 		if(head->data == key) return position;
 		head = head->next;
 	}
@@ -121,24 +117,24 @@ int search_key(ll_node<T> *head, T key){
 
 //reverse list
 template<class T>
-void reverse_list(ll_node<T> **head_ref){
+void stlmp::LinkedList::reverse_list(ll_node<T> **head_ref) {
 	ll_node<T> *prev = NULL;
-    ll_node<T> *current = *head_ref;
-    ll_node<T> *next;
+	ll_node<T> *current = *head_ref;
+	ll_node<T> *next;
 
-    while(current != NULL){
-        next = current->next;
-        current->next = prev;
-        prev = current;
-        current = next;
-    }
+	while(current != NULL){
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
 
-    *head_ref = prev;
+	*head_ref = prev;
 }
 
 // move to next node
 template<class T>
-void move_next(ll_node<T> **head_ref){
+void stlmp::LinkedList::move_next(ll_node<T> **head_ref) {
 	ll_node<T> *temp = *head_ref;
 	temp = temp->next;
 	*head_ref = temp;
@@ -146,7 +142,7 @@ void move_next(ll_node<T> **head_ref){
 
 // iterates through 2 lists and checks if they are equal
 template<class T>
-bool compare_lists(ll_node<T> *head1, ll_node<T> *head2){
+bool stlmp::LinkedList::compare_lists(ll_node<T> *head1, ll_node<T> *head2) {
 	ll_node<T> *temp1 = head1;
 	ll_node<T> *temp2 = head2;
 
