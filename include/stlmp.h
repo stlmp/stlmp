@@ -378,6 +378,24 @@ namespace stlmp {
             void sort(int length, T v[]);
         };
     }
+
+    namespace Tree {
+        template<class T>
+        struct TreeNode {
+            T data;
+            TreeNode *left_child;
+            TreeNode *right_child;
+
+            TreeNode(T new_data) : data(new_data), left_child(NULL), right_child(NULL) {};
+
+            void insertLeft(T new_data);
+
+            void insertRight(T new_data);
+        };
+
+        template<class T>
+        int get_length(TreeNode<T> *top);
+    }
 }
 
 #include "../src/linked_list/ll.hpp"
@@ -403,5 +421,7 @@ namespace stlmp {
 #include "../src/sorting/radix.hpp"
 #include "../src/sorting/selection.hpp"
 #include "../src/sorting/shell.hpp"
+
+#include "../src/tree/tree.hpp"
 
 #endif

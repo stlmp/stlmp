@@ -174,3 +174,20 @@ add_executable(test_sort_shell
         test/sorting/test_shell.cpp)
 target_link_libraries(test_sort_shell stlmp)
 add_test(SORT_SHELL test_sort_shell)
+
+########## trees
+add_executable(test_tree_simple
+        test/tree/test_tree.cpp)
+target_link_libraries(test_tree_simple stlmp)
+add_test(TREE_SIMPLE test_tree_simple)
+
+#add_executable(test_tree_bst
+#        test/tree/test_tree_bst.cpp)
+#target_link_libraries(test_tree_bst stlmp)
+#add_test(TREE_BST test_tree_bst)
+#
+#add_executable(test_tree_segment
+#        test/tree/test_tree_segment.cpp)
+#target_link_libraries(test_tree_segment stlmp)
+#add_test(TREE_SEGMENT test_tree_segment)
+
