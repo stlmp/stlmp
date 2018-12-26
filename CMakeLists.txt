@@ -13,7 +13,7 @@ endif ()
 include_directories(include)
 
 file(GLOB LINKEDLIST src/linked_list/*.cpp)
-file(GLOB SORTING src/sorting/*.cpp)
+file(GLOB SORTING src/sorting/*.hpp)
 file(GLOB SEARCH src/search/*.hpp)
 file(GLOB TREES src/tree/*.cpp)
 file(GLOB GRAPHS src/graph/*.hpp)
@@ -46,6 +46,9 @@ add_library(stlmp
 
         # searching algorithms
         ${SEARCH}
+
+        # sorting algorithms
+        ${SORTING}
         )
 
 include(CTest)
@@ -130,3 +133,9 @@ add_executable(test_search_jump
         test/search/test_jump.cpp)
 target_link_libraries(test_search_jump stlmp)
 add_test(SEARCH_JUMP test_search_jump)
+
+########## sort
+add_executable(test_sort_bubble
+        test/sorting/test_bubble.cpp)
+target_link_libraries(test_sort_bubble stlmp)
+add_test(SORT_BUBBLE test_sort_bubble)

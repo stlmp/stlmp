@@ -308,6 +308,14 @@ namespace stlmp {
             T search(int arrayLength, T ar[], T target);
         };
     }
+
+    namespace Sorting {
+        template <class T>
+        class BubbleSort {
+        public:
+            void sort(int length, T v[]);
+        };
+    }
 }
 
 #include "../src/linked_list/ll.hpp"
@@ -324,5 +332,7 @@ namespace stlmp {
 #include "../src/search/binary.hpp"
 #include "../src/search/fibonacci.hpp"
 #include "../src/search/jump.hpp"
+
+#include "../src/sorting/bubble.hpp"
 
 #endif
