@@ -154,3 +154,8 @@ add_executable(test_sort_merge
         test/sorting/test_merge.cpp)
 target_link_libraries(test_sort_merge stlmp)
 add_test(SORT_MERGE test_sort_merge)
+
+add_executable(test_sort_quick
+        test/sorting/test_quick.cpp)
+target_link_libraries(test_sort_quick stlmp)
+add_test(SORT_QUICK test_sort_quick)

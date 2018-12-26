@@ -1,10 +1,11 @@
-#include "gtest/gtest.h"
-#include "quick.hpp"
-#include <bits/stdc++.h>
-using namespace std;
+#include <cassert>
+#include "stlmp.h"
 
-TEST(quick_sort, all_tests){
+int main() {
 	int foo[] = {1, 3, 2, 5, 4};
-	quick_sort(5, foo);
-	ASSERT_EQ(foo[4], 5);
+	stlmp::Sorting::QuickSort<int> sort;
+	sort.sort(5, foo);
+	for (int i = 0; i < 5; ++i) {
+		assert(foo[i] == i + 1);
+	}
 }

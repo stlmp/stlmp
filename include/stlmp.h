@@ -278,7 +278,8 @@ namespace stlmp {
             void insert(T data);
 
             // another constructor to create a heap from an array
-            Heap(T ar[], int capacity, int type) : arr(new T[capacity]), size(capacity), capacity(capacity), type(type) {
+            Heap(T ar[], int capacity, int type) : arr(new T[capacity]), size(capacity), capacity(capacity),
+                                                   type(type) {
                 for (int i = 0; i < capacity; i++) this->arr[i] = ar[i];
                 for (int i = (capacity - 1) / 2; i >= 0; i--) down(i);
             }
@@ -290,19 +291,19 @@ namespace stlmp {
     }
 
     namespace Search {
-        template <class T>
+        template<class T>
         class BinarySearch {
         public:
             T search(int arrayLength, T ar[], T target);
         };
 
-        template <class T>
+        template<class T>
         class FibonacciSearch {
         public:
             T search(int arrayLength, T ar[], T target);
         };
 
-        template <class T>
+        template<class T>
         class JumpSearch {
         public:
             T search(int arrayLength, T ar[], T target);
@@ -310,31 +311,45 @@ namespace stlmp {
     }
 
     namespace Sorting {
-        template <class T>
+        template<class T>
         class BubbleSort {
         public:
             void sort(int length, T v[]);
         };
 
-        template <class T>
+        template<class T>
         class HeapSort {
         private:
             void heapify(T v[], int length, int i);
+
         public:
             void sort(int length, T v[]);
         };
 
-        template <class T>
+        template<class T>
         class InsertionSort {
         public:
             void sort(int length, T v[]);
         };
 
-        template <class T>
+        template<class T>
         class MergeSort {
         private:
             void _merge(T v[], int left, int mid, int right);
+
             void _merge_sort(T v[], int left, int right);
+
+        public:
+            void sort(int length, T v[]);
+        };
+
+        template<class T>
+        class QuickSort {
+        private:
+            int _partition(T v[], int left, int right);
+
+            void _quick(T v[], int left, int right);
+
         public:
             void sort(int length, T v[]);
         };
@@ -360,5 +375,6 @@ namespace stlmp {
 #include "../src/sorting/heap_sort.hpp"
 #include "../src/sorting/insertion.hpp"
 #include "../src/sorting/merge.hpp"
+#include "../src/sorting/quick.hpp"
 
 #endif
