@@ -6,8 +6,8 @@ using namespace stlmp::LinkedList;
 
 template<class T>
 void stlmp::Queue::Queue<T>::push(T new_data) {
-    ll_node<T> *new_node = create_node(new_data);
-    ll_node<T> *temp_node = this->head;
+    LLNode<T> *new_node = new LLNode<T>(new_data);
+    LLNode<T> *temp_node = this->head;
     new_node->next = temp_node;
     this->head = new_node;
     this->size++;
@@ -19,7 +19,7 @@ void stlmp::Queue::Queue<T>::print() {
         cout << "queue is empty" << endl;
         return;
     }
-    ll_node<T> *temp_node = this->head;
+    LLNode<T> *temp_node = this->head;
     cout << "Printing queue:" << endl;
     for (int i = 0; i < this->size; i++) {
         cout << temp_node->data << " ";
@@ -40,7 +40,7 @@ T stlmp::Queue::Queue<T>::pop() {
         this->size = 0;
         return data;
     }
-    ll_node<T> *new_node = this->head;
+    LLNode<T> *new_node = this->head;
     // move to second last element
     for (int i = 0; i < this->size - 2; i++) new_node = new_node->next;
     //cout << new_node->data << endl;

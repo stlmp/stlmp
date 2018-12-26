@@ -126,5 +126,6 @@ namespace stlmp {
 }
 
 #include "../src/linked_list/ll.hpp"
+#include "../src/queue/Queue.hpp"
 
 #endif
