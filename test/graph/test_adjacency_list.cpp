@@ -19,7 +19,7 @@ int main() {
 
 void test_adjacency_list() {
     int vertices[] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
-    auto *g = new Graph<int>(vertices, (int) (sizeof(vertices) / sizeof(vertices[0])));
+    auto *g = new stlmp::Graph::AdjacencyList::Graph<int>(vertices, (int) (sizeof(vertices) / sizeof(vertices[0])));
     g->connect_both_sides(0, 5);
     g->connect_both_sides(1, 5);
     g->connect_both_sides(7, 2);
@@ -34,7 +34,7 @@ void test_adjacency_list() {
 
 void test_topological_sort() {
     int vertices[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    Graph<int> graph(vertices, (int) (sizeof(vertices) / sizeof(vertices[0])));
+    stlmp::Graph::AdjacencyList::Graph<int> graph(vertices, (int) (sizeof(vertices) / sizeof(vertices[0])));
     graph.connect(0, 1);
     graph.connect(1, 2);
     graph.connect(2, 3);
@@ -67,7 +67,7 @@ void test_topological_sort() {
 
 void test_unweighted_shortest_path() {
     int vertices[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    Graph<int> graph(vertices, (int) (sizeof(vertices) / sizeof(vertices[0])));
+    stlmp::Graph::AdjacencyList::Graph<int> graph(vertices, (int) (sizeof(vertices) / sizeof(vertices[0])));
     graph.connect(0, 1);
     graph.connect(1, 2);
     graph.connect(2, 3);

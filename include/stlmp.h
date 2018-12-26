@@ -136,6 +136,7 @@ namespace stlmp {
 
         public:
             Stack() : capacity(10), size(0) {}
+
             explicit Stack(int cap) : capacity(cap), size(0) {}
 
             void push(T new_data);
@@ -163,7 +164,9 @@ namespace stlmp {
                 std::map<int, std::vector<T> > connections;
                 std::vector<T> vertices;
                 bool *visited;
+
                 void topologicalSortUtil(int v, bool *visited, Stack::Stack<int> *st);
+
             public:
                 Graph(T vertices[], int count);
 
@@ -186,15 +189,45 @@ namespace stlmp {
 
                 Stack::Stack<T> topologicalSort();
 
-                std::pair< std::vector<int>, std::vector<int> > shortestPathFromVertex(int s);
+                std::pair<std::vector<int>, std::vector<int> > shortestPathFromVertex(int s);
+            };
+        }
+
+        namespace AdjacencyMatrix {
+            template<typename T>
+            class Graph {
+            private:
+                int count;
+                bool **connections;
+                T *vertices;
+                bool *visited;
+            public:
+                Graph(T vertices[], int count);
+
+                void connect(int i, int j);
+
+                void connect_both_sides(int i, int j);
+
+                bool bfs(int i, int j);
+
+                void dfs(int i);
+
+                // check if the vertices at i and j are connected.
+                bool connected(int i, int j);
+
+                int connected_components();
             };
         }
     }
 }
 
 #include "../src/linked_list/ll.hpp"
+
 #include "../src/queue/Queue.hpp"
+
 #include "../src/graph/adjacency_list.hpp"
+#include "../src/graph/adjacency_matrix.hpp"
+
 #include "../src/stack/stack.hpp"
 
 #endif

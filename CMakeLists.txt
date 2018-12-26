@@ -31,6 +31,7 @@ add_library(stlmp
         # graphs
 #        ${GRAPHS}
         src/graph/adjacency_list.hpp
+        src/graph/adjacency_matrix.hpp
 
         # queue
         src/queue/Queue.hpp
@@ -92,6 +93,11 @@ add_executable(test_graph_adjacency_list
         test/graph/test_adjacency_list.cpp)
 target_link_libraries(test_graph_adjacency_list stlmp)
 add_test(GRAPH_ADJACENCY_LIST test_graph_adjacency_list)
+
+add_executable(test_graph_adjacency_matrix
+        test/graph/test_adjacency_matrix.cpp)
+target_link_libraries(test_graph_adjacency_matrix stlmp)
+add_test(GRAPH_ADJACENCY_MATRIX test_graph_adjacency_matrix)
 
 ########## stack
 add_executable(test_stack
