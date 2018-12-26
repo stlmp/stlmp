@@ -185,6 +185,8 @@ namespace stlmp {
                 int connected_components();
 
                 Stack::Stack<T> topologicalSort();
+
+                std::pair< std::vector<int>, std::vector<int> > shortestPathFromVertex(int s);
             };
         }
     }

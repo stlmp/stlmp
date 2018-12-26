@@ -136,3 +136,31 @@ Stack<T> Graph<T>::topologicalSort() {
 
     return st2;
 }
+
+/*
+ * Shortest path in Unweighted graph
+ */
+template<class T>
+std::pair< vector<int>, vector<int> > Graph<T>::shortestPathFromVertex(int s){
+    std::vector<int> distance(connections.size(), -1);
+    std::vector<int> path(connections.size());
+    Queue::Queue<int> q;
+    int v, w;
+    q.push(s);
+    distance[s] = 0;
+
+    while(q.size) {
+        v = q.peek();
+        q.pop();
+        for(int k = 0; k < connections[v].size(); k++){
+            w = connections[v][k];
+            if(distance[w] == -1){
+                distance[w] = distance[v] + 1;
+                path[w] = v;
+                q.push(w);
+            }
+        }
+    }
+    return std::make_pair(distance, path);
+}
+
