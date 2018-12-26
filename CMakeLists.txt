@@ -169,3 +169,8 @@ add_executable(test_sort_selection
         test/sorting/test_selection.cpp)
 target_link_libraries(test_sort_selection stlmp)
 add_test(SORT_SELECTION test_sort_selection)
+
+add_executable(test_sort_shell
+        test/sorting/test_shell.cpp)
+target_link_libraries(test_sort_shell stlmp)
+add_test(SORT_SHELL test_sort_shell)
