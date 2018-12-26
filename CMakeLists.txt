@@ -139,3 +139,8 @@ add_executable(test_sort_bubble
         test/sorting/test_bubble.cpp)
 target_link_libraries(test_sort_bubble stlmp)
 add_test(SORT_BUBBLE test_sort_bubble)
+
+add_executable(test_sort_heap
+        test/sorting/test_heap.cpp)
+target_link_libraries(test_sort_heap stlmp)
+add_test(SORT_HEAP test_sort_heap)

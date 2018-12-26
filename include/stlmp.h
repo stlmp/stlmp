@@ -315,6 +315,14 @@ namespace stlmp {
         public:
             void sort(int length, T v[]);
         };
+
+        template <class T>
+        class HeapSort {
+        private:
+            void heapify(T v[], int length, int i);
+        public:
+            void sort(int length, T v[]);
+        };
     }
 }
 
