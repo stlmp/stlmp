@@ -1,6 +1,6 @@
 #include <vector>
 #include <cassert>
-#include "../../include/stlmp.h"
+#include "stlmp.h"
 
 using namespace std;
 using namespace stlmp::Graph::AdjacencyList;
