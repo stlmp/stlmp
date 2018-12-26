@@ -157,10 +157,36 @@ namespace stlmp {
             };
         }
     }
+
+    namespace Stack {
+        template<class T>
+        class Stack {
+        private:
+            LinkedList::LLNode<T> *top;
+            int capacity; // number of elements the stack can contain
+            int size; // number of elements in the stack
+
+        public:
+            explicit Stack(int cap) : capacity(cap), size(0) {}
+
+            void push(T new_data);
+
+            void print();
+
+            T pop();
+
+            T peek();
+
+            int getSize();
+
+            int getCapacity();
+        };
+    }
 }
 
 #include "../src/linked_list/ll.hpp"
 #include "../src/queue/Queue.hpp"
 #include "../src/graph/adjacency_list.hpp"
+#include "../src/stack/stack.hpp"
 
 #endif

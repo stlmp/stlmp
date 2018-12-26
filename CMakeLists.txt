@@ -37,7 +37,11 @@ add_library(stlmp
 
         # linked list
 #        ${LINKEDLIST}
-        src/linked_list/ll.hpp)
+        src/linked_list/ll.hpp
+
+        # stack
+        src/stack/stack.hpp
+        )
 
 include(CTest)
 enable_testing()
@@ -83,9 +87,14 @@ add_test(SINGLY_LINKED_LIST test_linked_list)
 #add_test(DOUBLY_LINKED_LIST test_doubly_linked_list)
 # todo
 
-
 ########## graphs
 add_executable(test_graph_adjacency_list
         test/graph/test_adjacency_list.cpp)
 target_link_libraries(test_graph_adjacency_list stlmp)
 add_test(GRAPH_ADJACENCY_LIST test_graph_adjacency_list)
+
+########## stack
+add_executable(test_stack
+        test/stack/test_stack.cpp)
+target_link_libraries(test_stack stlmp)
+add_test(STACK test_stack)
