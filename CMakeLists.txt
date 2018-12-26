@@ -159,3 +159,8 @@ add_executable(test_sort_quick
         test/sorting/test_quick.cpp)
 target_link_libraries(test_sort_quick stlmp)
 add_test(SORT_QUICK test_sort_quick)
+
+add_executable(test_sort_radix
+        test/sorting/test_radix.cpp)
+target_link_libraries(test_sort_radix stlmp)
+add_test(SORT_RADIX test_sort_radix)

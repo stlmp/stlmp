@@ -353,6 +353,14 @@ namespace stlmp {
         public:
             void sort(int length, T v[]);
         };
+
+        template<class T>
+        class RadixSort {
+        private:
+            void _count_sort(T arr[], int length, int exp);
+        public:
+            void sort(int length, T v[]);
+        };
     }
 }
 
@@ -376,5 +384,6 @@ namespace stlmp {
 #include "../src/sorting/insertion.hpp"
 #include "../src/sorting/merge.hpp"
 #include "../src/sorting/quick.hpp"
+#include "../src/sorting/radix.hpp"
 
 #endif
