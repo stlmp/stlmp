@@ -14,9 +14,9 @@ include_directories(include)
 
 file(GLOB LINKEDLIST src/linked_list/*.cpp)
 file(GLOB SORTING src/sorting/*.cpp)
-file(GLOB SEARCH src/search/*.cpp)
+file(GLOB SEARCH src/search/*.hpp)
 file(GLOB TREES src/tree/*.cpp)
-file(GLOB GRAPHS src/graph/*.hpp src/graph/*.cpp)
+file(GLOB GRAPHS src/graph/*.hpp)
 file(GLOB ALGORITHMS src/algorithms/*.cpp)
 
 add_library(stlmp
@@ -29,9 +29,7 @@ add_library(stlmp
         src/disjoint_set/DisjointSet.cpp
 
         # graphs
-#        ${GRAPHS}
-        src/graph/adjacency_list.hpp
-        src/graph/adjacency_matrix.hpp
+        ${GRAPHS}
 
         # queue
         src/queue/Queue.hpp
@@ -45,6 +43,9 @@ add_library(stlmp
 
         # heap
         src/heap/heap.hpp
+
+        # searching algorithms
+        ${SEARCH}
         )
 
 include(CTest)
@@ -113,3 +114,9 @@ add_executable(test_heap
         test/heap/test_heap.cpp)
 target_link_libraries(test_heap stlmp)
 add_test(HEAP test_heap)
+
+########## search
+add_executable(test_search_binary
+        test/search/test_binary.cpp)
+target_link_libraries(test_search_binary stlmp)
+add_test(SEARCH_BINARY test_search_binary)

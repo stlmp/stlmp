@@ -288,6 +288,14 @@ namespace stlmp {
             bool is_heap();
         };
     }
+
+    namespace Search {
+        template <class T>
+        class BinarySearch {
+        public:
+            T search(int arrayLength, T ar[], T target);
+        };
+    }
 }
 
 #include "../src/linked_list/ll.hpp"
@@ -300,5 +308,7 @@ namespace stlmp {
 #include "../src/stack/stack.hpp"
 
 #include "../src/heap/heap.hpp"
+
+#include "../src/search/binary.hpp"
 
 #endif
