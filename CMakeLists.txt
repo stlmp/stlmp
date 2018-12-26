@@ -144,3 +144,8 @@ add_executable(test_sort_heap
         test/sorting/test_heap.cpp)
 target_link_libraries(test_sort_heap stlmp)
 add_test(SORT_HEAP test_sort_heap)
+
+add_executable(test_sort_insertion
+        test/sorting/test_insertion.cpp)
+target_link_libraries(test_sort_insertion stlmp)
+add_test(SORT_INSERTION test_sort_insertion)
