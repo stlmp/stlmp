@@ -295,6 +295,12 @@ namespace stlmp {
         public:
             T search(int arrayLength, T ar[], T target);
         };
+
+        template <class T>
+        class FibonacciSearch {
+        public:
+            T search(int arrayLength, T ar[], T target);
+        };
     }
 }
 
@@ -310,5 +316,6 @@ namespace stlmp {
 #include "../src/heap/heap.hpp"
 
 #include "../src/search/binary.hpp"
+#include "../src/search/fibonacci.hpp"
 
 #endif

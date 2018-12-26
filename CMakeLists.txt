@@ -120,3 +120,8 @@ add_executable(test_search_binary
         test/search/test_binary.cpp)
 target_link_libraries(test_search_binary stlmp)
 add_test(SEARCH_BINARY test_search_binary)
+
+add_executable(test_search_fibonacci
+        test/search/test_fibonacci.cpp)
+target_link_libraries(test_search_fibonacci stlmp)
+add_test(SEARCH_FIBONACCI test_search_fibonacci)
