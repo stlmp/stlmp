@@ -493,6 +493,89 @@ namespace stlmp {
 
             };
         }
+
+        namespace BST {
+            template<class T>
+            struct BSTNode {
+                T data;
+                BSTNode *left_child;
+                BSTNode *right_child;
+
+                BSTNode(T new_data) : data(new_data), left_child(NULL), right_child(NULL) {};
+            };
+
+            template<class T>
+            class BST {
+            private:
+                BSTNode<T> *node;
+
+                // helper functions
+                int _get_length(BSTNode<T> *node);
+
+                void _insert(BSTNode<T> *node, T new_data);
+
+                void _print(BSTNode<T> *node);
+
+                void _print_post_order(BSTNode<T> *node);
+
+                void _print_pre_order(BSTNode<T> *node);
+
+                int _count_nodes(BSTNode<T> *node);
+
+                bool _find(BSTNode<T> *node, T data);
+
+                void _print_max_path(BSTNode<T> *node);
+
+                T _get_max(BSTNode<T> *node);
+
+                T _get_min(BSTNode<T> *node);
+
+                BSTNode<T> *_get_min_node(BSTNode<T> *node);
+
+                BSTNode<T> *_delete_value(BSTNode<T> *root, T del_data);
+
+                int _get_count(BSTNode<T> *node);
+
+                void _level_order(BSTNode<T> *node);
+
+            public:
+                BST() : node(NULL) {}
+
+                BST(T new_data) : node(new BSTNode<T>(new_data)) {}
+
+                ~BST() {
+                    delete node;
+                }
+
+                T data();
+
+                void insert(T new_data);
+
+                int get_length();
+
+                void print();
+
+                void print_post_order();
+
+                void print_pre_order();
+
+                T get_max();
+
+                T get_min();
+
+                int count_nodes();
+
+                bool find(T data);
+
+                void print_max_path();
+
+                void delete_value(T del_data);
+
+                int get_count();
+
+                void level_order();
+            };
+        }
     }
 }
 
@@ -521,6 +604,6 @@ namespace stlmp {
 #include "../src/sorting/shell.hpp"
 
 #include "../src/tree/tree.hpp"
-// #include "../src/tree/bst.cpp"
+#include "../src/tree/bst.hpp"
 
 #endif

@@ -183,10 +183,10 @@ add_executable(test_tree_simple
 target_link_libraries(test_tree_simple stlmp)
 add_test(TREE_SIMPLE test_tree_simple)
 
-#add_executable(test_tree_bst
-#        test/tree/test_tree_bst.cpp)
-#target_link_libraries(test_tree_bst stlmp)
-#add_test(TREE_BST test_tree_bst)
+add_executable(test_tree_bst
+        test/tree/test_tree_bst.cpp)
+target_link_libraries(test_tree_bst stlmp)
+add_test(TREE_BST test_tree_bst)
 
 add_executable(test_tree_segment
         test/tree/test_tree_segment.cpp)
