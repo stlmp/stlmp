@@ -1,10 +1,9 @@
-// C++ program to implement Jump Search 
-  
-#include <bits/stdc++.h> 
-using namespace std; 
-  
-int _jump_search(int arr[], int x, int n) 
-{ 
+#include "stlmp.h"
+
+using namespace stlmp::Search;
+
+template<class T>
+T JumpSearch<T>::search(int n, T *arr, T x) {
     // Finding block size to be jumped 
     int step = sqrt(n); 
   

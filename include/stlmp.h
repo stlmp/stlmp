@@ -301,6 +301,12 @@ namespace stlmp {
         public:
             T search(int arrayLength, T ar[], T target);
         };
+
+        template <class T>
+        class JumpSearch {
+        public:
+            T search(int arrayLength, T ar[], T target);
+        };
     }
 }
 
@@ -317,5 +323,6 @@ namespace stlmp {
 
 #include "../src/search/binary.hpp"
 #include "../src/search/fibonacci.hpp"
+#include "../src/search/jump.hpp"
 
 #endif

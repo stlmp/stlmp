@@ -1,11 +1,21 @@
-#include "gtest/gtest.h"
-#include "jump.hpp"
+#include <cassert>
+#include "stlmp.h"
 
-using namespace std;
+using namespace stlmp::Search;
 
-TEST(jump_search, all_tests)
-{
-	int foo[] = {1, 3, 2, 5, 4};
-	int pos = jump_search(5, foo,3);
-	ASSERT_EQ(pos, 1);
+int main() {
+	int foo[] = {1, 2, 3, 4, 5};
+	JumpSearch<int> binarySearch;
+	int pos = binarySearch.search(5, foo, -3);
+	assert(pos == -1);
+	pos = binarySearch.search(5, foo, 1);
+	assert(pos == 0);
+	pos = binarySearch.search(5, foo, 2);
+	assert(pos == 1);
+	pos = binarySearch.search(5, foo, 3);
+	assert(pos == 2);
+	pos = binarySearch.search(5, foo, 4);
+	assert(pos == 3);
+	pos = binarySearch.search(5, foo, 5);
+	assert(pos == 4);
 }
