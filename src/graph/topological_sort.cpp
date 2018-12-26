@@ -7,7 +7,7 @@ using namespace std;
 void _ts(int v, bool visited[], stack<int> *st, vector< vector<int> > graph){
 	visited[v] = true;
 
-	// go to all verices adjacent to this one
+	// go to all vertices adjacent to this one
 	for(int w=0;w<graph[v].size();w++){
 		int new_node = graph[v][w];
 		if(!visited[new_node]) _ts(new_node, visited, st, graph);

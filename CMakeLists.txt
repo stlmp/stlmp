@@ -16,7 +16,7 @@ file(GLOB LINKEDLIST src/linked_list/*.cpp)
 file(GLOB SORTING src/sorting/*.cpp)
 file(GLOB SEARCH src/search/*.cpp)
 file(GLOB TREES src/tree/*.cpp)
-file(GLOB GRAPHS src/graph/*.cpp)
+file(GLOB GRAPHS src/graph/*.hpp src/graph/*.cpp)
 file(GLOB ALGORITHMS src/algorithms/*.cpp)
 
 add_library(stlmp
@@ -30,6 +30,7 @@ add_library(stlmp
 
         # graphs
 #        ${GRAPHS}
+        src/graph/adjacency_list.hpp
 
         # queue
         src/queue/Queue.hpp
@@ -82,3 +83,9 @@ add_test(SINGLY_LINKED_LIST test_linked_list)
 #add_test(DOUBLY_LINKED_LIST test_doubly_linked_list)
 # todo
 
+
+########## graphs
+add_executable(test_graph_adjacency_list
+        test/graph/test_adjacency_list.cpp)
+target_link_libraries(test_graph_adjacency_list stlmp)
+add_test(GRAPH_ADJACENCY_LIST test_graph_adjacency_list)

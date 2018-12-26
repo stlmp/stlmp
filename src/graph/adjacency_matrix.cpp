@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../queue/queue.hpp"
+#include "../queue/Queue.hpp"
 using namespace std;
 
 template<typename T>

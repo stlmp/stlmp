@@ -2,6 +2,8 @@
 #define __STLMP__
 
 #include <cstdlib>
+#include <vector>
+#include <map>
 
 namespace stlmp {
     namespace algorithms {
@@ -123,9 +125,42 @@ namespace stlmp {
             return s->size;
         }
     }
+
+    namespace Graph {
+        namespace AdjacencyList {
+            template<typename T>
+            class Graph {
+            private:
+                int count;
+                std::map<int, std::vector<T> > connections;
+                std::vector<T> vertices;
+                bool *visited;
+            public:
+                Graph(T vertices[], int count);
+
+                void connect(int i, int j);
+
+                void connect_both_sides(int i, int j);
+
+                bool contains(std::vector<int> v, int n);
+
+                bool bfs(int i, int j);
+
+                void dfs(int i);
+
+                // check if the vertices at i and j are connected.
+                bool connected(int i, int j);
+
+                void print_graph();
+
+                int connected_components();
+            };
+        }
+    }
 }
 
 #include "../src/linked_list/ll.hpp"
 #include "../src/queue/Queue.hpp"
+#include "../src/graph/adjacency_list.hpp"
 
 #endif
