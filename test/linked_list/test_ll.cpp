@@ -9,7 +9,7 @@ int main() {
     cout << "----------------------------------------------------" << endl;
     cout << "Simple list creation:" << endl;
     cout << "----------------------------------------------------" << endl;
-    auto *linkedList = new SinglyLinkedList(1);
+    auto *linkedList = new SinglyLinkedList<int>(1);
     linkedList->append(2);
     cout << "Printing list:" << endl;
     linkedList->printList();
