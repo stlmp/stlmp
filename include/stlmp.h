@@ -342,5 +342,6 @@ namespace stlmp {
 #include "../src/search/jump.hpp"
 
 #include "../src/sorting/bubble.hpp"
+#include "../src/sorting/heap_sort.hpp"
 
 #endif
