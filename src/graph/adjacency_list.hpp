@@ -6,6 +6,7 @@
 
 using namespace stlmp::Queue;
 using namespace stlmp::Graph::AdjacencyList;
+using namespace stlmp::Stack;
 
 template<typename T>
 int Graph<T>::connected_components() {
@@ -90,4 +91,48 @@ Graph<T>::Graph(T *vertices, int count) : count(count), visited(new bool[count])
     for (int i = 0; i < count; i++) {
         this->vertices.push_back(vertices[i]);
     }
+}
+
+/**
+ * Topological sorting
+ * */
+// util function
+template<class T>
+void Graph<T>::topologicalSortUtil(int v, bool *visited, Stack::Stack<int> *st) {
+    visited[v] = true;
+
+    // go to all vertices adjacent to this one
+    for (int w = 0; w < connections[v].size(); w++) {
+        int new_node = connections[v][w];
+        if (!visited[new_node]) topologicalSortUtil(new_node, visited, st);
+    }
+
+    st->push(v);
+}
+
+template<class T>
+Stack<T> Graph<T>::topologicalSort() {
+    Stack::Stack<int> st;
+
+    // mark all vertices as not visited
+    bool *visited = new bool[vertices.size()];
+    for (int i = 0; i < vertices.size(); i++) visited[i] = false;
+
+    // call helper function to store topological sort
+    // starting from all vertices one by one
+    for (int i = 0; i < vertices.size(); i++) {
+        if (!visited[i]) topologicalSortUtil(i, visited, &st);
+    }
+
+    Stack::Stack<int> st2;
+    st2 = st;
+
+    cout << "Printing graph after topological sort: " << endl;
+    while (!st.empty()) {
+        cout << st.peek() << " ";
+        st.pop();
+    }
+    cout << endl;
+
+    return st2;
 }
