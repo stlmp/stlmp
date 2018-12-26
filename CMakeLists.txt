@@ -42,6 +42,9 @@ add_library(stlmp
 
         # stack
         src/stack/stack.hpp
+
+        # heap
+        src/heap/heap.hpp
         )
 
 include(CTest)
@@ -104,3 +107,9 @@ add_executable(test_stack
         test/stack/test_stack.cpp)
 target_link_libraries(test_stack stlmp)
 add_test(STACK test_stack)
+
+########## heap
+add_executable(test_heap
+        test/heap/test_heap.cpp)
+target_link_libraries(test_heap stlmp)
+add_test(HEAP test_heap)

@@ -219,6 +219,75 @@ namespace stlmp {
             };
         }
     }
+
+    namespace Heap {
+        template<typename T>
+        class Heap {
+        private:
+            T *arr;
+            int size;
+            int capacity;
+            int type; // if 1, max heap else if -1 min heap
+        public:
+            Heap() : arr(NULL), size(0), capacity(0), type(0) {}
+
+            Heap(int capacity, int type) : arr(new T[capacity]), size(0), capacity(capacity), type(type) {}
+
+            // get private values
+            int get_size() { return this->size; }
+
+            int get_capacity() { return this->capacity; }
+
+            int get_type() { return this->type; }
+
+            // util functions
+            // get index of parent from child index
+            int get_parent(int child_index);
+
+            bool has_left_child(int parent_index);
+
+            bool has_right_child(int parent_index);
+
+            // get index of left child from parent's index
+            int get_left_child(int parent_index);
+
+            // get index of left child from parent's index
+            int get_right_child(int parent_index);
+
+            // get max / min, depending on the type of heap
+            // get minimum from min heap
+            T get_min();
+
+            // get maximum from max heap
+            T get_max();
+
+            // takes location of element as input and heapifies our array downwards
+            // considering max heap
+            void down(int parent_index);
+
+            bool is_full() {
+                return this->size == this->capacity;
+            }
+
+            bool is_empty() {
+                return this->size == 0;
+            }
+
+            void resize();
+
+            void insert(T data);
+
+            // another constructor to create a heap from an array
+            Heap(T ar[], int capacity, int type) : arr(new T[capacity]), size(capacity), capacity(capacity), type(type) {
+                for (int i = 0; i < capacity; i++) this->arr[i] = ar[i];
+                for (int i = (capacity - 1) / 2; i >= 0; i--) down(i);
+            }
+
+            void print();
+
+            bool is_heap();
+        };
+    }
 }
 
 #include "../src/linked_list/ll.hpp"
@@ -229,5 +298,7 @@ namespace stlmp {
 #include "../src/graph/adjacency_matrix.hpp"
 
 #include "../src/stack/stack.hpp"
+
+#include "../src/heap/heap.hpp"
 
 #endif

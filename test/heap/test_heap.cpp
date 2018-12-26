@@ -1,27 +1,26 @@
-#include "gtest/gtest.h"
-#include "heap.hpp"
-#include <iostream>
+#include <cassert>
+#include "stlmp.h"
 
-using namespace std;
+using namespace stlmp::Heap;
 
-TEST(heap, all_tests){
-	heap<int> *h = new heap<int>(10, 1);
-	ASSERT_TRUE(h->is_empty());
+int main(){
+    auto *h = new Heap<int>(10, 1);
+	assert(h->is_empty());
 	h->insert(1);
 	h->insert(2);
 	h->insert(3);
 	h->insert(4);
 	h->print();
-	ASSERT_EQ(h->get_size(), 4);
-	ASSERT_EQ(h->get_capacity(), 10);
-	ASSERT_EQ(h->get_type(), 1);
-	ASSERT_EQ(h->get_max(), 4);
-	ASSERT_FALSE(h->is_full());
-	ASSERT_FALSE(h->is_empty());
-	ASSERT_TRUE(h->is_heap());
+	assert(h->get_size() == 4);
+	assert(h->get_capacity() == 10);
+	assert(h->get_type() == 1);
+	assert(h->get_max() == 4);
+	assert(!h->is_full());
+	assert(!h->is_empty());
+	assert(h->is_heap());
 
 	int arr[] = {1, 2, 3, 4, 5, 6};
-	heap<int> *h2 = new heap<int>(arr, 6, 1);
+    auto *h2 = new Heap<int>(arr, 6, 1);
 	h2->print();
-	ASSERT_TRUE(h2->is_heap());
+	assert(h2->is_heap());
 }
