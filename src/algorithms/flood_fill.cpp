@@ -1,7 +1,7 @@
 //
 // Created by manparvesh on 12/25/18.
 //
-#import "../../include/stlmp.h"
+#include "../../include/stlmp.h"
 
 // defining dimensions of image
 #define M 8

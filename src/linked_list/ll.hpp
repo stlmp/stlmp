@@ -2,28 +2,28 @@
 #include <iostream>
 #include <stlmp.h>
 
-#include "../../include/stlmp.h"
-
 using namespace stlmp::LinkedList;
 
 // print list
 template<class T>
-void stlmp::LinkedList::SinglyLinkedList<T>::printList(stlmp::LinkedList::LLNode<T> head) {
-    while (head) {
-        std::cout << head->data << " ";
-        head = head->next;
+void SinglyLinkedList<T>::printList() {
+    auto *temp = head;
+    while (temp) {
+        std::cout << temp->data << " ";
+        temp = temp->next;
     }
     std::cout << std::endl;
 }
 
 template<class T>
-int SinglyLinkedList<T>::getLength(LLNode<T> head) {
+int SinglyLinkedList<T>::getLength() {
     int length = 0;
+    auto *temp = head;
     std::cout << "List:\n";
-    while (head) {
+    while (temp) {
         length++;
-        std::cout << head->data << " ";
-        head = head->next;
+        std::cout << temp->data << " ";
+        temp = temp->next;
     }
     std::cout << std::endl;
     return length;
@@ -31,40 +31,42 @@ int SinglyLinkedList<T>::getLength(LLNode<T> head) {
 
 // convert an array to a linked list
 template<class T>
-LLNode<T> *stlmp::LinkedList::create_list_from_array(int length, T *arr) {
+SinglyLinkedList<T> *stlmp::LinkedList::create_list_from_array(int length, T *arr) {
     if (length == 0) return NULL;
-    LLNode<T> *head = create_node(arr[0]);
-    LLNode<T> *temp = head;
+    auto list = new SinglyLinkedList<T>(arr[0]);
+    LLNode<T> *temp = list->getHead();
 
     for (int i = 1; i < length; i++) {
-        temp->next = create_node(arr[i]);
+        temp->next = new LLNode<T>(arr[i]);
         temp = temp->next;
     }
 
-    return head;
+    return list;
 }
 
 // push at the starting of a linked list
 template<class T>
-void stlmp::LinkedList::push(LLNode<T> **head_ref, T data) {
-    LLNode<T> *new_node = create_node(data);
+void SinglyLinkedList<T>::push(T data) {
+    auto head_ref = &head;
+    auto *new_node = new LLNode<T>(data);
     new_node->next = *head_ref;
     *head_ref = new_node;
 }
 
 // insert a node after given node
 template<class T>
-void stlmp::LinkedList::insert_after(LLNode<T> *prev_node, T data) {
+void SinglyLinkedList<T>::insertAfter(LLNode<T> *prev_node, T data) {
     if (prev_node == NULL) return;
-    LLNode<T> *new_node = create_node(data);
+    auto *new_node = new LLNode<T>(data);
     new_node->next = prev_node->next;
     prev_node->next = new_node;
 }
 
 // given a reference pointer to the head, appends a new node at the end.
 template<class T>
-void stlmp::LinkedList::append(LLNode<T> **head_ref, T data) {
-    LLNode<T> *new_node = create_node(data);
+void SinglyLinkedList<T>::append(T data) {
+    auto *new_node = new LLNode<T>(data);
+    auto head_ref = &head;
     if (*head_ref == NULL) {
         *head_ref = new_node;
         return;
@@ -76,7 +78,8 @@ void stlmp::LinkedList::append(LLNode<T> **head_ref, T data) {
 
 // delete the node which contains the given data
 template<class T>
-void stlmp::LinkedList::delete_node_with_data(LLNode<T> **head_ref, int data) {
+void SinglyLinkedList<T>::deleteNodeWithData(T data) {
+    auto head_ref = &head;
     if (*head_ref == NULL) return;
     LLNode<T> *temp_node = *head_ref, *prev_node;
 
@@ -96,7 +99,7 @@ void stlmp::LinkedList::delete_node_with_data(LLNode<T> **head_ref, int data) {
 
 // get position of a key in linked list
 template<class T>
-int stlmp::LinkedList::search_key(LLNode<T> *head, T key) {
+int SinglyLinkedList<T>::searchKey(T key) {
     int position = -1;
     while (head) {
         position++;
@@ -109,7 +112,8 @@ int stlmp::LinkedList::search_key(LLNode<T> *head, T key) {
 
 //reverse list
 template<class T>
-void stlmp::LinkedList::reverse_list(LLNode<T> **head_ref) {
+void SinglyLinkedList<T>::reverseList() {
+    auto head_ref = &head;
     LLNode<T> *prev = NULL;
     LLNode<T> *current = *head_ref;
     LLNode<T> *next;
@@ -126,7 +130,7 @@ void stlmp::LinkedList::reverse_list(LLNode<T> **head_ref) {
 
 // move to next node
 template<class T>
-void stlmp::LinkedList::move_next(LLNode<T> **head_ref) {
+void SinglyLinkedList<T>::move_next(LLNode<T> **head_ref) {
     LLNode<T> *temp = *head_ref;
     temp = temp->next;
     *head_ref = temp;
@@ -134,14 +138,14 @@ void stlmp::LinkedList::move_next(LLNode<T> **head_ref) {
 
 // iterates through 2 lists and checks if they are equal
 template<class T>
-bool stlmp::LinkedList::compare_lists(LLNode<T> *head1, LLNode<T> *head2) {
-    LLNode<T> *temp1 = head1;
-    LLNode<T> *temp2 = head2;
+bool SinglyLinkedList<T>::compareTo(stlmp::LinkedList::SinglyLinkedList<T> *anotherList) {
+    LLNode<T> *temp1 = head;
+    LLNode<T> *temp2 = anotherList->getHead();
 
     while (temp1 && temp2) {
         if (temp1->data == temp2->data) {
-            move_next(&temp1);
-            move_next(&temp2);
+            SinglyLinkedList<T>::move_next(&temp1);
+            SinglyLinkedList<T>::move_next(&temp2);
         } else {
             return false;
         }

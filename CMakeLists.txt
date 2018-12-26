@@ -35,8 +35,8 @@ add_library(stlmp
 #        src/queue/Queue.cpp
 
         # linked list
-        ${LINKEDLIST}
-        )
+#        ${LINKEDLIST}
+        src/linked_list/ll.hpp)
 
 include(CTest)
 enable_testing()

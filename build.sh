@@ -27,7 +27,7 @@ if [[ $? -eq 0 ]]; then
 	make
 	if [[ $? -eq 0 ]]; then
 	    printf "${green}make succeeded, running tests${reset}\n"
-	    make test
+	    env CTEST_OUTPUT_ON_FAILURE=1 make test
 	else
 	    printf "${red}make failed${reset}\n"
 	fi

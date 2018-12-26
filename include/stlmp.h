@@ -38,6 +38,9 @@ namespace stlmp {
     }
 
     namespace LinkedList {
+        /**
+         * The node class for linked list
+         * */
         template<class T>
         class LLNode {
         public:
@@ -47,45 +50,53 @@ namespace stlmp {
             explicit LLNode<T>(T newData) : data(newData), next(NULL) {}
         };
 
+        /**
+         * The SinglyLinkedList class
+         * */
         template<class T>
         class SinglyLinkedList {
         private:
-            LLNode<T> head;
+            LLNode<T> *head;
+            void move_next(LLNode<T> **head_ref);
         public:
-            explicit SinglyLinkedList(T newData) : head(new LLNode(newData)) {}
+            // constructor that creates a new list with head as a new node with given data
+            explicit SinglyLinkedList(T newData) : head(new LLNode<T>(newData)) {}
 
-            void printList(LLNode<T> head);
+            LLNode<T> *getHead() {
+                return head;
+            }
 
-            int getLength(LLNode<T> head);
+            // print this list
+            void printList();
+
+            // get length of linked list
+            int getLength();
+
+            // push at the starting of a linked list
+            void push(T data);
+
+            // append new node at the end
+            void append(T data);
+
+            // insert after the node with given data
+            void insertAfter(LLNode<T> *prev_node, T newData);
+
+            // delete the node with the given data
+            void deleteNodeWithData(T data);
+
+            // get position of a key in linked list
+            int searchKey(T key);
+
+            // compare to another list
+            bool compareTo(SinglyLinkedList<T> *anotherList);
+
+            // reverse this list
+            void reverseList();
         };
 
 
         template<class T>
-        LLNode<T> *create_list_from_array(int length, T arr[]);
-
-        template<class T>
-        void push(LLNode<T> **head_ref, T data);
-
-        template<class T>
-        void insert_after(LLNode<T> *prev_node, T data);
-
-        template<class T>
-        void append(LLNode<T> **head_ref, T data);
-
-        template<class T>
-        void delete_node_with_data(LLNode<T> **head_ref, int data);
-
-        template<class T>
-        int search_key(LLNode<T> *head, T key);
-
-        template<class T>
-        void reverse_list(LLNode<T> **head_ref);
-
-        template<class T>
-        void move_next(LLNode<T> **head_ref);
-
-        template<class T>
-        bool compare_lists(LLNode<T> *head1, LLNode<T> *head2);
+        SinglyLinkedList<T> *create_list_from_array(int length, T arr[]);
     }
 
     namespace Queue {
@@ -112,4 +123,5 @@ namespace stlmp {
     }
 }
 
+#include "../src/linked_list/ll.hpp"
 #endif
