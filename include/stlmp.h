@@ -329,6 +329,15 @@ namespace stlmp {
         public:
             void sort(int length, T v[]);
         };
+
+        template <class T>
+        class MergeSort {
+        private:
+            void _merge(T v[], int left, int mid, int right);
+            void _merge_sort(T v[], int left, int right);
+        public:
+            void sort(int length, T v[]);
+        };
     }
 }
 
@@ -350,5 +359,6 @@ namespace stlmp {
 #include "../src/sorting/bubble.hpp"
 #include "../src/sorting/heap_sort.hpp"
 #include "../src/sorting/insertion.hpp"
+#include "../src/sorting/merge.hpp"
 
 #endif

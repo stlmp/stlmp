@@ -149,3 +149,8 @@ add_executable(test_sort_insertion
         test/sorting/test_insertion.cpp)
 target_link_libraries(test_sort_insertion stlmp)
 add_test(SORT_INSERTION test_sort_insertion)
+
+add_executable(test_sort_merge
+        test/sorting/test_merge.cpp)
+target_link_libraries(test_sort_merge stlmp)
+add_test(SORT_MERGE test_sort_merge)
