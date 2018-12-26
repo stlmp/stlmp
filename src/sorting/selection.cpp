@@ -1,7 +1,8 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include "stlmp.h"
+using namespace stlmp::Sorting;
 
-int _get_min(int length, int v[], int i){
+template <class T>
+T SelectionSort<T>::_get_min(int length, T v[], int i){
 	int min = i;
 	while(i < length){
 		min = v[min] < v[i] ? min : i;
@@ -10,7 +11,8 @@ int _get_min(int length, int v[], int i){
 	return min;
 }
 
-void selection_sort(int length, int v[]){
+template <class T>
+void SelectionSort<T>::sort(int length, T v[]){
 	int min = _get_min(length, v, 0);
 	swap(v[0], v[min]);
 	for(int i=0;i<length-1;i++){

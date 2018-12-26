@@ -1,10 +1,11 @@
-#include "gtest/gtest.h"
-#include "selection.hpp"
-#include <bits/stdc++.h>
-using namespace std;
+#include <cassert>
+#include "stlmp.h"
 
-TEST(selection_sort, all_tests){
-	int foo[] = {1, 3, 2, 5, 4};
-	selection_sort(5, foo);
-	ASSERT_EQ(foo[4], 5);
+int main() {
+    int foo[] = {1, 3, 2, 5, 4};
+    stlmp::Sorting::SelectionSort<int> sort;
+    sort.sort(5, foo);
+    for (int i = 0; i < 5; ++i) {
+        assert(foo[i] == i + 1);
+    }
 }

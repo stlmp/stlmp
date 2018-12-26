@@ -164,3 +164,8 @@ add_executable(test_sort_radix
         test/sorting/test_radix.cpp)
 target_link_libraries(test_sort_radix stlmp)
 add_test(SORT_RADIX test_sort_radix)
+
+add_executable(test_sort_selection
+        test/sorting/test_selection.cpp)
+target_link_libraries(test_sort_selection stlmp)
+add_test(SORT_SELECTION test_sort_selection)
