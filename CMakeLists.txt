@@ -74,7 +74,7 @@ add_test(DISJOINT_SET test_disjoint_set)
 add_executable(test_linked_list
         test/linked_list/test_ll.cpp)
 target_link_libraries(test_linked_list stlmp)
-add_test(LINKED_LIST test_linked_list)
+add_test(SINGLY_LINKED_LIST test_linked_list)
 
 #add_executable(test_doubly_linked_list
 #        test/linked_list/test_dll.cpp)

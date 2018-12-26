@@ -57,10 +57,12 @@ namespace stlmp {
         class SinglyLinkedList {
         private:
             LLNode<T> *head;
+
             void move_next(LLNode<T> **head_ref);
+
         public:
             // constructor that creates a new list with head as a new node with given data
-            explicit SinglyLinkedList(T newData) : head(new LLNode<T>(newData)) {}
+            explicit SinglyLinkedList(T newData) : head(newData == NULL ? NULL : new LLNode<T>(newData)) {}
 
             LLNode<T> *getHead() {
                 return head;
@@ -124,4 +126,5 @@ namespace stlmp {
 }
 
 #include "../src/linked_list/ll.hpp"
+
 #endif

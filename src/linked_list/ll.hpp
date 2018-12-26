@@ -32,7 +32,7 @@ int SinglyLinkedList<T>::getLength() {
 // convert an array to a linked list
 template<class T>
 SinglyLinkedList<T> *stlmp::LinkedList::create_list_from_array(int length, T *arr) {
-    if (length == 0) return NULL;
+    if (length == 0) return new SinglyLinkedList<T>(NULL);
     auto list = new SinglyLinkedList<T>(arr[0]);
     LLNode<T> *temp = list->getHead();
 
@@ -101,11 +101,12 @@ void SinglyLinkedList<T>::deleteNodeWithData(T data) {
 template<class T>
 int SinglyLinkedList<T>::searchKey(T key) {
     int position = -1;
-    while (head) {
+    auto *temp = head;
+    while (temp) {
         position++;
-        std::cout << "pos: " << position << " data: " << head->data << std::endl;
-        if (head->data == key) return position;
-        head = head->next;
+        std::cout << "pos: " << position << " data: " << temp->data << std::endl;
+        if (temp->data == key) return position;
+        temp = temp->next;
     }
     return -1;
 }
