@@ -1,6 +1,7 @@
 //
 // Created by manparvesh on 12/26/18.
 //
+#include <cassert>
 #include "stlmp.h"
 using namespace stlmp::Tree;
 

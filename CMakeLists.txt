@@ -15,7 +15,7 @@ include_directories(include)
 file(GLOB LINKEDLIST src/linked_list/*.cpp)
 file(GLOB SORTING src/sorting/*.hpp)
 file(GLOB SEARCH src/search/*.hpp)
-file(GLOB TREES src/tree/*.cpp)
+file(GLOB TREES src/tree/*.hpp)
 file(GLOB GRAPHS src/graph/*.hpp)
 file(GLOB ALGORITHMS src/algorithms/*.cpp)
 
@@ -49,6 +49,8 @@ add_library(stlmp
 
         # sorting algorithms
         ${SORTING}
+
+        ${TREES}
         )
 
 include(CTest)
@@ -185,9 +187,9 @@ add_test(TREE_SIMPLE test_tree_simple)
 #        test/tree/test_tree_bst.cpp)
 #target_link_libraries(test_tree_bst stlmp)
 #add_test(TREE_BST test_tree_bst)
-#
-#add_executable(test_tree_segment
-#        test/tree/test_tree_segment.cpp)
-#target_link_libraries(test_tree_segment stlmp)
-#add_test(TREE_SEGMENT test_tree_segment)
+
+add_executable(test_tree_segment
+        test/tree/test_tree_segment.cpp)
+target_link_libraries(test_tree_segment stlmp)
+add_test(TREE_SEGMENT test_tree_segment)
 

@@ -1,7 +1,7 @@
 //
 // Created by manparvesh on 12/25/18.
 //
-#include "../../include/stlmp.h"
+#include "stlmp.h"
 
 void rotateArrayUtil_(int *array, int start, int end) {
     while (start < end) {
