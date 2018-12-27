@@ -103,6 +103,64 @@ namespace stlmp {
 
         template<class T>
         SinglyLinkedList<T> *create_list_from_array(int length, T arr[]);
+
+        template<class T>
+        class DLLNode {
+        public:
+            T data;
+            DLLNode *next;
+            DLLNode *prev;
+
+            explicit DLLNode(T data) : data(data), next(NULL), prev(NULL) {}
+        };
+
+        template<class T>
+        class DoublyLinkedList {
+        private:
+            DLLNode<T> *head;
+
+            void move_next(DLLNode<T> **head_ref);
+
+            void move_prev(DLLNode<T> **head_ref);
+
+        public:
+            // constructor that creates a new list with head as a new node with given data
+            explicit DoublyLinkedList(T newData) : head(newData == NULL ? NULL : new DLLNode<T>(newData)) {}
+
+            DLLNode<T> *getHead() {
+                return head;
+            }
+
+            // print this list
+            void printList();
+
+            // get length of linked list
+            int getLength();
+
+            // push at the starting of a linked list
+            void push(T data);
+
+            // append new node at the end
+            void append(T data);
+
+            // insert after the node with given data
+            void insertAfter(DLLNode<T> *prev_node, T newData);
+
+            // delete the node with the given data
+            void deleteNodeWithData(T data);
+
+            // get position of a key in linked list
+            int searchKey(T key);
+
+            // compare to another list
+            bool compareTo(DoublyLinkedList<T> *anotherList);
+
+            // reverse this list
+            void reverseList();
+        };
+
+        template<class T>
+        DoublyLinkedList<T> *create_doubly_linked_list_from_array(int length, T arr[]);
     }
 
     namespace Queue {
@@ -580,6 +638,7 @@ namespace stlmp {
 }
 
 #include "../src/linked_list/ll.hpp"
+#include "../src/linked_list/dll.hpp"
 
 #include "../src/queue/Queue.hpp"
 

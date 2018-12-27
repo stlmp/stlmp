@@ -12,7 +12,7 @@ endif ()
 
 include_directories(include)
 
-file(GLOB LINKEDLIST src/linked_list/*.cpp)
+file(GLOB LINKEDLIST src/linked_list/*.hpp)
 file(GLOB SORTING src/sorting/*.hpp)
 file(GLOB SEARCH src/search/*.hpp)
 file(GLOB TREES src/tree/*.hpp)
@@ -35,8 +35,7 @@ add_library(stlmp
         src/queue/Queue.hpp
 
         # linked list
-#        ${LINKEDLIST}
-        src/linked_list/ll.hpp
+        ${LINKEDLIST}
 
         # stack
         src/stack/stack.hpp
@@ -91,11 +90,10 @@ add_executable(test_linked_list
 target_link_libraries(test_linked_list stlmp)
 add_test(SINGLY_LINKED_LIST test_linked_list)
 
-#add_executable(test_doubly_linked_list
-#        test/linked_list/test_dll.cpp)
-#target_link_libraries(test_doubly_linked_list stlmp)
-#add_test(DOUBLY_LINKED_LIST test_doubly_linked_list)
-# todo
+add_executable(test_doubly_linked_list
+        test/linked_list/test_dll.cpp)
+target_link_libraries(test_doubly_linked_list stlmp)
+add_test(DOUBLY_LINKED_LIST test_doubly_linked_list)
 
 ########## graphs
 add_executable(test_graph_adjacency_list
