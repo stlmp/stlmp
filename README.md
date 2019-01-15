@@ -7,6 +7,7 @@
   <h1>stlmp</h1>
   <p>Data Structures and Algorithms library in C++</p>
   <a href="https://travis-ci.org/stlmp/stlmp/builds" target="_blank"><img src="https://travis-ci.org/stlmp/stlmp.svg?branch=master" alt="Build Status"></a> 
+  <a href="https://lgtm.com/projects/g/stlmp/stlmp/context:cpp"><img alt="Language grade: C/C++" src="https://img.shields.io/lgtm/grade/cpp/g/stlmp/stlmp.svg?logo=lgtm&logoWidth=18"/></a>
   <a href="https://manparvesh.mit-license.org/" target="_blank"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a> 
   
 </div>
