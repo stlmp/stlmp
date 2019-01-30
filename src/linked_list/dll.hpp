@@ -103,11 +103,12 @@ void DoublyLinkedList<T>::deleteNodeWithData(T data) {
 template<class T>
 int DoublyLinkedList<T>::searchKey(T key) {
     int position = -1;
-    while (head) {
+    auto *temp = head;
+    while (temp) {
         position++;
         cout << "pos: " << position << " data: " << head->data << endl;
         if (head->data == key) return position;
-        head = head->next;
+        temp = temp->next;
     }
     return -1;
 }
