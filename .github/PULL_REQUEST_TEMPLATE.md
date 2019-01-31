@@ -5,7 +5,8 @@
 - ...
 - ...
 
-**Fixes**: #
+#### Related issue:
+Fixes #
 
 ---
 
