@@ -280,6 +280,37 @@ namespace stlmp {
         }
     }
 
+    namespace HashMap{
+        template<typename K, typename V>
+        class HashMap{
+        private:
+            std::pair<K, V> **table;
+            bool *should_check;
+            int size;
+            int (*hash_function)(K key);
+
+            void reset_arrays();
+
+        public:
+            HashMap();
+
+            HashMap(int capacity, int (*hash_function)(K));
+
+            //big 3
+            HashMap(const HashMap<K, V>& other);
+
+            ~HashMap();
+
+            const HashMap<K, V>& operator=(const HashMap<K, V>& other);
+
+            void insert(K key, V value);
+
+            V get(K key);
+
+            V remove(K key);
+        };
+    };
+
     namespace Heap {
         template<typename T>
         class Heap {
@@ -646,6 +677,8 @@ namespace stlmp {
 #include "../src/graph/adjacency_matrix.hpp"
 
 #include "../src/stack/stack.hpp"
+
+#include "../src/hashmap/hashmap.hpp"
 
 #include "../src/heap/heap.hpp"
 

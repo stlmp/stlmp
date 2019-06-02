@@ -15,6 +15,7 @@ include_directories(include)
 file(GLOB LINKEDLIST src/linked_list/*.hpp)
 file(GLOB SORTING src/sorting/*.hpp)
 file(GLOB SEARCH src/search/*.hpp)
+file(GLOB HASHMAP src/hash/*.hpp)
 file(GLOB TREES src/tree/*.hpp)
 file(GLOB GRAPHS src/graph/*.hpp)
 file(GLOB ALGORITHMS src/algorithms/*.cpp)
@@ -39,6 +40,9 @@ add_library(stlmp
 
         # stack
         src/stack/stack.hpp
+
+        # hashmap
+        ${HASHMAP}
 
         # heap
         src/heap/heap.hpp
