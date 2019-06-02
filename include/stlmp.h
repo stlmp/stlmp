@@ -6,6 +6,7 @@
 #include <map>
 #include <cmath>
 #include <iostream>
+#include <string>
 
 namespace stlmp {
     namespace algorithms {
@@ -280,21 +281,29 @@ namespace stlmp {
         }
     }
 
-    namespace HashMap{
+    namespace HashMap {
+        // some popular hash functions
+        unsigned long long djb2(const std::string& input);
+        unsigned long long sbdm(const std::string& input);
+
         template<typename K, typename V>
         class HashMap{
         private:
             std::pair<K, V> **table;
             bool *should_check;
             int size;
-            int (*hash_function)(K key);
+            int capacity;
+            unsigned long long (*primary_hash)(const K& key);
+            unsigned long long (*secondary_hash)(const K& key);
 
             void reset_arrays();
+            int find_index(const K& key);
+            void resize_table();
 
         public:
             HashMap();
 
-            HashMap(int capacity, int (*hash_function)(K));
+            HashMap(int capacity, unsigned long long (*hash_function)(K, int), unsigned long long (*secondary_hash)(K, int) = nullptr);
 
             //big 3
             HashMap(const HashMap<K, V>& other);
@@ -303,13 +312,13 @@ namespace stlmp {
 
             const HashMap<K, V>& operator=(const HashMap<K, V>& other);
 
-            void insert(K key, V value);
+            void insert(const K& key, const V& value);
 
-            V get(K key);
+            V get(const K& key);
 
-            V remove(K key);
+            V remove(const K& key);
         };
-    };
+    }
 
     namespace Heap {
         template<typename T>
