@@ -282,9 +282,6 @@ namespace stlmp {
     }
 
     namespace HashMap {
-        // some popular hash functions
-        unsigned long long djb2(const std::string& input);
-        unsigned long long sbdm(const std::string& input);
 
         template<typename K, typename V>
         class HashMap{
@@ -300,19 +297,19 @@ namespace stlmp {
             int find_index(const K& key);
             void resize_table();
 
+            void copy_data(const HashMap<K, V>& other);
+            void delete_memory();
+
         public:
             //TODO
             HashMap();
 
             HashMap(int capacity, unsigned int (*hash_function)(const K&, int), unsigned int (*secondary_hash)(const K&, int) = nullptr);
 
-            //TODO
             HashMap(const HashMap<K, V>& other);
 
-            //TODO
             ~HashMap();
 
-            //TODO
             const HashMap<K, V>& operator=(const HashMap<K, V>& other);
 
             void insert(const K& key, const V& value);

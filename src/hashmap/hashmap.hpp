@@ -11,20 +11,31 @@ HashMap<K, V>::HashMap(int capacity, unsigned (*hash_function)(const K&, int), u
 
     this->m_capacity = capacity;
     this->m_size = 0;
-    this->primary_hash= hash_function;
+    this->primary_hash = hash_function;
     this->secondary_hash = secondary_hash;
 
     reset_arrays();
 }
 
 template<typename K, typename V>
-HashMap<K, V>::~HashMap(){
+HashMap<K, V>::HashMap(const HashMap& other){
+    copy_data(other);
+}
 
+template<typename K, typename V>
+const HashMap<K, V>& HashMap<K, V>::operator=(const HashMap<K, V>& other){
+    delete_memory();
+    copy_data(other);
+}
+
+template<typename K, typename V>
+HashMap<K, V>::~HashMap(){
+    delete_memory();
 }
 
 template<typename K, typename V>
 void HashMap<K, V>::reset_arrays(){
-    for(int i=0; i<m_size; i++){
+    for(int i=0; i<m_capacity; i++){
         m_table[i] = nullptr;
         m_should_check[i] = false;
     }
@@ -97,4 +108,31 @@ int HashMap<K, V>::capacity(){
 template<typename K, typename V>
 void HashMap<K, V>::resize_table(){
 
+}
+
+template<typename K, typename V>
+void HashMap<K, V>::delete_memory(){
+    for(int i=0; i<m_size; i++){
+        if (m_table[i]){
+            delete m_table[i];
+        }
+    }
+    delete[] m_table;
+    delete[] m_should_check;
+}
+
+template<typename K, typename V>
+void HashMap<K, V>::copy_data(const HashMap<K, V>& other){
+    this->m_size = other.m_size;
+    this->m_capacity = other.m_capacity;
+    this->primary_hash = other->primary_hash;
+    this->secondary_hash = other->secondary_hash;
+
+    this->m_table = new pair<K, V>*[m_capacity];
+    this->m_should_check = new bool[m_capacity];
+
+    for(int i=0; i<m_capacity; i++){
+        this->m_table[i] = other.m_table[i];
+        this->m_should_check = other.m_should_check[i];
+    }
 }
