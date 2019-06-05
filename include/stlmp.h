@@ -289,27 +289,30 @@ namespace stlmp {
         template<typename K, typename V>
         class HashMap{
         private:
-            std::pair<K, V> **table;
-            bool *should_check;
-            int size;
-            int capacity;
-            unsigned long long (*primary_hash)(const K& key);
-            unsigned long long (*secondary_hash)(const K& key);
+            std::pair<K, V> **m_table;
+            bool *m_should_check;
+            int m_size;
+            int m_capacity;
+            unsigned int (*primary_hash)(const K& key, int len);
+            unsigned int (*secondary_hash)(const K& key, int len);
 
             void reset_arrays();
             int find_index(const K& key);
             void resize_table();
 
         public:
+            //TODO
             HashMap();
 
-            HashMap(int capacity, unsigned long long (*hash_function)(K, int), unsigned long long (*secondary_hash)(K, int) = nullptr);
+            HashMap(int capacity, unsigned int (*hash_function)(const K&, int), unsigned int (*secondary_hash)(const K&, int) = nullptr);
 
-            //big 3
+            //TODO
             HashMap(const HashMap<K, V>& other);
 
+            //TODO
             ~HashMap();
 
+            //TODO
             const HashMap<K, V>& operator=(const HashMap<K, V>& other);
 
             void insert(const K& key, const V& value);
@@ -317,6 +320,13 @@ namespace stlmp {
             V get(const K& key);
 
             V remove(const K& key);
+
+            int size();
+
+            int capacity();
+
+            //TODO
+            friend std::ostream& operator<<(std::ostream& os, const HashMap &map);
         };
     }
 

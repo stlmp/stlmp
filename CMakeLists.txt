@@ -122,6 +122,12 @@ add_executable(test_heap
 target_link_libraries(test_heap stlmp)
 add_test(HEAP test_heap)
 
+########## hashmap
+add_executable(test_hashmap
+        test/hashmap/test_hashmap.cpp)
+target_link_libraries(test_hashmap stlmp)
+add_test(HASHMAP test_hashmap)
+
 ########## search
 add_executable(test_search_binary
         test/search/test_binary.cpp)
