@@ -1,12 +1,57 @@
 #include "../../include/stlmp.h"
+#include <type_traits>
 
 using namespace stlmp::HashMap;
 using std::pair;
 
+namespace hash_functions{
+
+    static unsigned int djb2_hash(const std::string& input, int len){
+        unsigned int rv = 5831;
+        for(char c : input){
+            rv = ((rv << 5) + rv) + c;
+        }
+        return rv % len;
+    }
+
+    static unsigned int sbdm_hash(const std::string& input, int len){
+        unsigned int rv = 0;
+        for(char c : input){
+            rv = c + (rv << 6) + (rv << 16) - rv;
+        }
+        return rv % len;
+    }
+
+}
+
+template<typename K, typename V>
+HashMap<K, V>::HashMap(){
+    this->m_capacity = 10;
+    this->m_size = 0;
+    this->m_table = new pair<K, V>*[m_capacity];
+    this->m_should_check = new bool[m_capacity];
+
+    reset_arrays();
+
+    if constexpr (std::is_same_v<K, string>){
+        this->primary_hash = hash_functions::djb2_hash;
+        this->secondary_hash = hash_functions::sbdm_hash;
+    }
+    else if constexpr (std::is_same_v<K, int>){
+
+    }
+    else if constexpr (std::is_same_v<K, float>){
+
+    }
+    else {
+        cout << "Error! There is no built in has function for the given template key (K)! Please use the custom constructor and supply your own!" << endl;
+        exit(1);
+    }
+}
+
 template<typename K, typename V>
 HashMap<K, V>::HashMap(int capacity, unsigned (*hash_function)(const K&, int), unsigned (*secondary_hash)(const K&, int)){
     this->m_table = new pair<K, V>*[capacity];
-
     this->m_should_check = new bool[capacity];
 
     this->m_capacity = capacity;
