@@ -40,7 +40,22 @@ void test_resizing(){
     assert(hashmap.capacity() == 4096);
 }
 
+void test_big_three(){
+    HashMap<float, int> hashmap;
+    for(int i=0; i<2000; i++){
+        hashmap.insert((float)i, i);
+    }
+    //copy ctor
+    HashMap<float, int> copied(hashmap);
+    assert(hashmap == copied);
+
+    //copy operator=
+    copied = hashmap;
+    assert(hashmap == copied);
+}
+
 int main(){
     test_resizing();
     test_default_hash_functions();
+    test_big_three();
 }

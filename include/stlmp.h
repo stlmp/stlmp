@@ -290,8 +290,7 @@ namespace stlmp {
             bool *m_should_check;
             int m_size;
             int m_capacity;
-            std::hash<K> primary_hash;
-            std::hash<K> secondary_hash;
+            std::hash<K> hash_function;
 
             void reset_arrays(std::pair<K, V> **& table, bool *& should_check, int len);
             int find_index(const K& key);
@@ -302,8 +301,6 @@ namespace stlmp {
 
         public:
             HashMap();
-
-            HashMap(int capacity, std::hash<K> primary_hash, std::hash<V> secondary_hash);
 
             HashMap(const HashMap<K, V>& other);
 
@@ -320,6 +317,8 @@ namespace stlmp {
             int size();
 
             int capacity();
+
+            bool operator==(const HashMap<K, V>& rhs);
 
         };
     }
