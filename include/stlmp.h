@@ -290,10 +290,10 @@ namespace stlmp {
             bool *m_should_check;
             int m_size;
             int m_capacity;
-            unsigned int (*primary_hash)(const K& key, int len);
-            unsigned int (*secondary_hash)(const K& key, int len);
+            std::hash<K> primary_hash;
+            std::hash<K> secondary_hash;
 
-            void reset_arrays();
+            void reset_arrays(std::pair<K, V> **& table, bool *& should_check, int len);
             int find_index(const K& key);
             void resize_table();
 
@@ -301,10 +301,9 @@ namespace stlmp {
             void delete_memory();
 
         public:
-            //TODO
             HashMap();
 
-            HashMap(int capacity, unsigned int (*hash_function)(const K&, int), unsigned int (*secondary_hash)(const K&, int) = nullptr);
+            HashMap(int capacity, std::hash<K> primary_hash, std::hash<V> secondary_hash);
 
             HashMap(const HashMap<K, V>& other);
 
@@ -322,8 +321,6 @@ namespace stlmp {
 
             int capacity();
 
-            //TODO
-            friend std::ostream& operator<<(std::ostream& os, const HashMap &map);
         };
     }
 
