@@ -42,7 +42,10 @@ void HashMap<K, V>::reset_arrays(pair<K, V> **& table, bool *& should_check, int
 
 template<typename K, typename V>
 int HashMap<K, V>::find_index(const K& key){
-    for(int idx = hash_function(key) % m_capacity; m_table[idx] != nullptr && m_should_check[idx]; idx = (idx + 1) % m_capacity){
+    for(int idx = hash_function(key) % m_capacity; m_table[idx] != nullptr || m_should_check[idx]; idx = (idx + 1) % m_capacity){
+        if (m_table[idx] == nullptr){
+            continue;
+        }
         if (m_table[idx]->first == key){
             return idx;
         }
@@ -86,7 +89,6 @@ V HashMap<K, V>::remove(const K& key){
         m_size--;
         delete m_table[index];
         m_table[index] = nullptr;
-        m_should_check[index] = false;
     }
     return rv;
 }

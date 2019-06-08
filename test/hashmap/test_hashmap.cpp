@@ -52,6 +52,13 @@ void test_big_three(){
     //copy operator=
     copied = hashmap;
     assert(hashmap == copied);
+
+    //make sure it's a deep copy
+    for(int i=0; i<2000; i++){
+        assert(hashmap.remove((float)i) == i);
+    }
+    assert(hashmap.size() == 0);
+    assert(copied.size() == 2000);
 }
 
 int main(){
