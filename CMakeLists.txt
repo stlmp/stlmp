@@ -15,6 +15,7 @@ include_directories(include)
 file(GLOB LINKEDLIST src/linked_list/*.hpp)
 file(GLOB SORTING src/sorting/*.hpp)
 file(GLOB SEARCH src/search/*.hpp)
+file(GLOB HASHMAP src/hash/*.hpp)
 file(GLOB TREES src/tree/*.hpp)
 file(GLOB GRAPHS src/graph/*.hpp)
 file(GLOB ALGORITHMS src/algorithms/*.cpp)
@@ -39,6 +40,9 @@ add_library(stlmp
 
         # stack
         src/stack/stack.hpp
+
+        # hashmap
+        ${HASHMAP}
 
         # heap
         src/heap/heap.hpp
@@ -117,6 +121,12 @@ add_executable(test_heap
         test/heap/test_heap.cpp)
 target_link_libraries(test_heap stlmp)
 add_test(HEAP test_heap)
+
+########## hashmap
+add_executable(test_hashmap
+        test/hashmap/test_hashmap.cpp)
+target_link_libraries(test_hashmap stlmp)
+add_test(HASHMAP test_hashmap)
 
 ########## search
 add_executable(test_search_binary

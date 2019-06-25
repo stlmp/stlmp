@@ -6,6 +6,7 @@
 #include <map>
 #include <cmath>
 #include <iostream>
+#include <string>
 
 namespace stlmp {
     namespace algorithms {
@@ -278,6 +279,48 @@ namespace stlmp {
                 int connected_components();
             };
         }
+    }
+
+    namespace HashMap {
+
+        template<typename K, typename V>
+        class HashMap{
+        private:
+            std::pair<K, V> **m_table;
+            bool *m_should_check;
+            int m_size;
+            int m_capacity;
+            std::hash<K> hash_function;
+
+            void reset_arrays(std::pair<K, V> **& table, bool *& should_check, int len);
+            int find_index(const K& key);
+            void resize_table();
+
+            void copy_data(const HashMap<K, V>& other);
+            void delete_memory();
+
+        public:
+            HashMap();
+
+            HashMap(const HashMap<K, V>& other);
+
+            ~HashMap();
+
+            const HashMap<K, V>& operator=(const HashMap<K, V>& other);
+
+            void insert(const K& key, const V& value);
+
+            V get(const K& key);
+
+            V remove(const K& key);
+
+            int size();
+
+            int capacity();
+
+            bool operator==(const HashMap<K, V>& rhs);
+
+        };
     }
 
     namespace Heap {
@@ -646,6 +689,8 @@ namespace stlmp {
 #include "../src/graph/adjacency_matrix.hpp"
 
 #include "../src/stack/stack.hpp"
+
+#include "../src/hashmap/hashmap.hpp"
 
 #include "../src/heap/heap.hpp"
 
