@@ -6,7 +6,7 @@ template<class T>
 int QuickSort<T>::_partition(T v[], int left, int right) {
     int pivot = v[right];
     int i = left - 1;
-    for (int j = left; j < right - 1; j++) {
+    for (int j = left; j <= right - 1; j++) {
         if (v[j] <= pivot) {
             i++;
             std::swap(v[i], v[j]);
