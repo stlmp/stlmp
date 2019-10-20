@@ -450,7 +450,7 @@ namespace stlmp {
         class QuickSort {
         private:
             int _partition(T v[], int left, int right);
-
+            void _shuffle(T v[], int left, int right);
             void _quick(T v[], int left, int right);
 
         public:
