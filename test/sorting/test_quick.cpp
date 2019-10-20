@@ -1,6 +1,7 @@
 #include <cassert>
 #include "stlmp.h"
 
+
 int main() {
 	int foo[] = {1, 3, 2, 5, 4};
 	stlmp::Sorting::QuickSort<int> sort;
